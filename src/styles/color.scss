@@ -1,0 +1,237 @@
+@charset "utf-8";
+/* global color config */
+
+$defaultFontColor: #444;
+
+$redColor: #d73d0e;
+$azureColor: #1871d7;
+$greenColor: #558b2f;
+$mintgreenColor: #66f9cf;
+
+$primaryColor: #238efa;
+$infoColor: #03a9f4;
+$successColor: #34c749;
+$warningColor: #fdbc40;
+$errorColor: #fc615d;
+$cancelColor: #ababab;
+
+body {
+  background-color: lighten($mintgreenColor, 30%);
+}
+header,
+footer {
+  background: hsla(0,0%,0%,.8);
+  color: #fff;
+  a {
+    color: #fff;
+  }
+}
+
+a {
+  &.primary {
+    color: lighten($primaryColor, 5%);
+    &:hover {color: $primaryColor; }
+    &:active {color: darken($primaryColor, 5%); }
+  }
+  &.info {
+    color: lighten($infoColor, 5%);
+    &:hover {color: $infoColor; }
+    &:active {color: darken($infoColor, 5%); }
+  }
+  &.success {
+    color: lighten($successColor, 5%);
+    &:hover {color: $successColor; }
+    &:active {color: darken($successColor, 5%); }
+  }
+  &.warning {
+    color: lighten($warningColor, 5%);
+    &:hover {color: $warningColor; }
+    &:active {color: darken($warningColor, 5%); }
+  }
+  &.error {
+    color: lighten($errorColor, 5%);
+    &:hover {color: $errorColor; }
+    &:active {color: darken($errorColor, 5%); }
+  }
+   &.cancel {
+    color: lighten($cancelColor, 5%);
+    &:hover {color: $cancelColor; }
+    &:active {color: darken($cancelColor, 5%); }
+  }
+  &.azure {
+    color: lighten($azureColor, 5%);
+    &:hover {color: $azureColor; }
+    &:active {color: darken($azureColor, 5%); }
+  }
+  &.green {
+    color: lighten($greenColor, 5%);
+    &:hover {color: $greenColor; }
+    &:active {color: darken($greenColor, 5%); }
+  }
+  &.red {
+    color: lighten($redColor, 5%);
+    &:hover {color: $redColor; }
+    &:active {color: darken($redColor, 5%); }
+  }
+  &.mintgreen {
+    color: darken($mintgreenColor, 10%);
+    &:hover {color: darken($mintgreenColor, 15%); }
+    &:active {color: darken($mintgreenColor, 20%); }
+  }
+}
+span {
+  &.primary {color: $primaryColor; }
+  &.info {color: $infoColor; }
+  &.success {color: $successColor; }
+  &.warning {color: $warningColor; }
+  &.error {color: $errorColor; }
+  &.cancel {color: $cancelColor; }
+  &.azure {color: $azureColor; }
+  &.green {color: $greenColor; }
+  &.red {color: $redColor; }
+  &.mintgreen {color: darken($mintgreenColor, 15%); }
+}
+
+.bg-primary {background-color: lighten($primaryColor, 35%);}
+.bg-info {background-color: lighten($infoColor, 38%);}
+.bg-success {background-color: lighten($successColor, 38%);}
+.bg-warning {background-color: lighten($warningColor, 30%);}
+.bg-error {background-color: lighten($errorColor, 25%);}
+.bg-cancel {background-color: lighten($cancelColor, 20%);}
+.bg-azure {background-color: lighten($azureColor, 38%);}
+.bg-green {background-color: lighten($greenColor, 38%);}
+.bg-red {background-color: lighten($redColor, 38%);}
+.bg-mintgreen {background-color: lighten($mintgreenColor, 25%);}
+
+.btn {
+  &.primary {
+    background-color: lighten($primaryColor, 5%);
+    border-color: $primaryColor;
+    &:hover {background-color: $primaryColor; }
+    &:active {background-color: darken($primaryColor, 5%); }
+  }
+  &.info {
+    background-color: lighten($infoColor, 5%);
+    border-color: $infoColor;
+    &:hover {background-color: $infoColor; }
+    &:active {background-color: darken($infoColor, 5%); }
+  }
+  &.success {
+    background-color: lighten($successColor, 5%);
+    border-color: $successColor;
+    &:hover {background-color: $successColor; }
+    &:active {background-color: darken($successColor, 5%); }
+  }
+  &.warning {
+    background-color: lighten($warningColor, 5%);
+    border-color: $warningColor;
+    &:hover {background-color: $warningColor; }
+    &:active {background-color: darken($warningColor, 5%); }
+  }
+  &.error {
+    background-color: lighten($errorColor, 5%);
+    border-color: $errorColor;
+    &:hover {background-color: $errorColor; }
+    &:active {background-color: darken($errorColor, 5%); }
+  }
+  &.cancel {
+    background-color: lighten($cancelColor, 5%);
+    border-color: $cancelColor;
+    &:hover {background-color: $cancelColor; }
+    &:active {background-color: darken($cancelColor, 5%); }
+  }
+  &.azure {
+    background-color: lighten($azureColor, 5%);
+    border-color: $azureColor;
+    &:hover {background-color: $azureColor; }
+    &:active {background-color: darken($azureColor, 5%); }
+  }
+  &.green {
+    background-color: lighten($greenColor, 5%);
+    border-color: $greenColor;
+    &:hover {background-color: $greenColor; }
+    &:active {background-color: darken($greenColor, 5%); }
+  }
+  &.red {
+    background-color: lighten($redColor, 5%);
+    border-color: $redColor;
+    &:hover {background-color: $redColor; }
+    &:active {background-color: darken($redColor, 5%); }
+  }
+  &.mintgreen {
+    background-color: darken($mintgreenColor, 10%);
+    border-color: darken($mintgreenColor, 15%);
+    &:hover {background-color: darken($mintgreenColor, 15%); }
+    &:active {background-color: darken($mintgreenColor, 20%); }
+  }
+}
+
+/** scene for checkbox **/
+.swit {
+  &.primary .rectangle > span::before {background-color: lighten($primaryColor, 5%);}
+  &.info .rectangle > span::before {background-color: lighten($infoColor, 5%);}
+  &.success .rectangle > span::before {background-color: lighten($successColor, 5%);}
+  &.warning .rectangle > span::before {background-color: lighten($warningColor, 5%);}
+  &.error .rectangle > span::before {background-color: lighten($errorColor, 5%);}
+  &.cancel .rectangle > span::before {background-color: lighten($cancelColor, 5%);}
+  &.azure .rectangle > span::before {background-color: lighten($azureColor, 5%);}
+  &.green .rectangle > span::before {background-color: lighten($greenColor, 5%);}
+  &.red .rectangle > span::before {background-color: lighten($redColor, 5%);}
+  &.mintgreen .rectangle > span::before {background-color: lighten($mintgreenColor, 5%); color: darken($mintgreenColor, 40%);}
+
+  &.primary input:checked + .round {background-color: lighten($primaryColor, 5%); }
+  &.info input:checked + .round {background-color: lighten($infoColor, 5%); }
+  &.success input:checked + .round {background-color: lighten($successColor, 5%); }
+  &.warning input:checked + .round {background-color: lighten($warningColor, 5%); }
+  &.error input:checked + .round {background-color: lighten($errorColor, 5%); }
+  &.cancel input:checked + .round {background-color: lighten($cancelColor, 5%); }
+  &.azure input:checked + .round {background-color: lighten($azureColor, 5%); }
+  &.green input:checked + .round {background-color: lighten($greenColor, 5%); }
+  &.red input:checked + .round {background-color: lighten($redColor, 5%); }
+  &.mintgreen input:checked + .round {background-color: lighten($mintgreenColor, 0%);}
+}
+.swit.led {
+  &.primary input:checked + .round > span::after {box-shadow: 0px 0px 1px 0px lighten($primaryColor, 30%);background-color: lighten($primaryColor, 5%); }
+  &.info input:checked + .round > span::after {box-shadow: 0px 0px 1px 0px lighten($infoColor, 30%);background-color: lighten($infoColor, 5%); }
+  &.success input:checked + .round > span::after {box-shadow: 0px 0px 1px 0px lighten($successColor, 30%);background-color: lighten($successColor, 5%); }
+  &.warning input:checked + .round > span::after {box-shadow: 0px 0px 1px 0px lighten($warningColor, 30%);background-color: lighten($warningColor, 5%); }
+  &.error input:checked + .round > span::after {box-shadow: 0px 0px 1px 0px lighten($errorColor, 30%);background-color: lighten($errorColor, 5%); }
+  &.cancel input:checked + .round > span::after {box-shadow: 0px 0px 1px 0px lighten($cancelColor, 30%);background-color: lighten($cancelColor, 5%); }
+  &.azure input:checked + .round > span::after {box-shadow: 0px 0px 1px 0px lighten($azureColor, 30%);background-color: lighten($azureColor, 5%); }
+  &.green input:checked + .round > span::after {box-shadow: 0px 0px 1px 0px lighten($greenColor, 30%);background-color: lighten($greenColor, 5%); }
+  &.red input:checked + .round > span::after {box-shadow: 0px 0px 1px 0px lighten($redColor, 30%);background-color: lighten($redColor, 5%); }
+  &.mintgreen input:checked + .round > span::after {box-shadow: 0px 0px 1px 0px lighten($mintgreenColor, 30%);background-color: lighten($mintgreenColor, 0%);}
+}
+.checkbox {
+  &.primary input:checked + .i {background-color: lighten($primaryColor, 5%); }
+  &.info input:checked + .i {background-color: lighten($infoColor, 5%); }
+  &.success input:checked + .i {background-color: lighten($successColor, 5%); }
+  &.warning input:checked + .i {background-color: lighten($warningColor, 5%); }
+  &.error input:checked + .i {background-color: lighten($errorColor, 5%); }
+  &.cancel input:checked + .i {background-color: darken($cancelColor, 5%); }
+  &.azure input:checked + .i {background-color: lighten($azureColor, 5%); }
+  &.green input:checked + .i {background-color: lighten($greenColor, 5%); }
+  &.red input:checked + .i {background-color: lighten($redColor, 5%); }
+  &.mintgreen input:checked + .i {background-color: darken($mintgreenColor, 25%); }
+}
+.radio {
+  &.primary > input:checked + .i::after {background-color: lighten($primaryColor, 5%); }
+  &.info > input:checked + .i::after {background-color: lighten($infoColor, 5%); }
+  &.success > input:checked + .i::after {background-color: lighten($successColor, 5%); }
+  &.warning > input:checked + .i::after {background-color: lighten($warningColor, 5%); }
+  &.error > input:checked + .i::after {background-color: lighten($errorColor, 5%); }
+  &.cancel > input:checked + .i::after {background-color: lighten($cancelColor, 5%); }
+  &.azure > input:checked + .i::after {background-color: lighten($azureColor, 5%); }
+  &.green > input:checked + .i::after {background-color: lighten($greenColor, 5%); }
+  &.red > input:checked + .i::after {background-color: lighten($redColor, 5%); }
+  &.mintgreen > input:checked + .i::after {background-color: darken($mintgreenColor, 25%); }
+}
+
+
+
+
+
+
+
+
+
