@@ -1,15 +1,16 @@
 /**
- * Created by shiro on 16/10/18.
+ * Created by aresn on 16/7/5.
  */
 
 var path = require('path');
 var webpack = require('webpack');
+var projectRoot = path.resolve(__dirname, './');
 
 module.exports = {
   // 入口
   entry: {
     main: './src/main',
-    vendors: ['vue', 'vue-router', 'vue-resource']
+    vendors: ['vue', 'vue-router', 'jquery']
   },
   // 输出
   output: {
@@ -17,12 +18,26 @@ module.exports = {
   },
   // 加载器
   module: {
+    preLoaders: [
+      {
+        test: /\.vue$/,
+        loader: 'eslint',
+        include: projectRoot,
+        exclude: /node_modules/
+      },
+      {
+        test: /\.js$/,
+        loader: 'eslint',
+        include: projectRoot,
+        exclude: /node_modules/
+      }
+    ],
     loaders: [
       { test: /\.vue$/, loader: 'vue' },
       { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
       { test: /\.css$/, loader: 'style!css!autoprefixer'},
       { test: /\.scss$/, loader: 'style!css!sass?sourceMap'},
-      { test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=8192&name=[name].[ext]'},
+      { test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=8192'},
       { test: /\.(html|tpl)$/, loader: 'html-loader' }
     ]
   },
@@ -38,8 +53,10 @@ module.exports = {
     alias: {
       filter: path.join(__dirname, './src/filters'),
       components: path.join(__dirname, './src/components'),
-      libs: path.join(__dirname, './src/libs')
+      vue: 'vue/dist/vue.js'
     }
   },
-  plugins: []
+  plugins: [
+
+  ]
 };

@@ -1,15 +1,13 @@
 /**
- * Created by shiro on 16/9/11.
+ * Created by aresn on 16/6/20.
  */
 import Vue from 'vue';
-import Resource from 'vue-resource';
 import VueRouter from 'vue-router';
-import App from 'components/app.vue';
 import Routers from './router';
 import Env from './config/env';
+import App from './views/app';
 
 Vue.use(VueRouter);
-Vue.use(Resource);
 
 // 开启debug模式
 Vue.config.debug = true;
@@ -17,35 +15,33 @@ Vue.config.debug = true;
 // 路由配置
 let router = new VueRouter({
   // 是否开启History模式的路由,默认开发环境开启,生产环境不开启。如果生产环境的服务端没有进行相关配置,请慎用
-  // history: Env != 'production'
-  history: true
+  mode: (Env != 'production' ? 'history' : 'hash'),
+  routes: Routers
 });
 
-router.map(Routers);
-
-router.beforeEach(() => {
+router.beforeEach((to, from, next) => {
   window.scrollTo(0, 0);
+  if(to.matched[0].path === '/rmsp' && to.name !== 'rmsp_login') {
+    if(!sessionStorage.user) {
+      router.replace('/rmsp/login');
+    }else {
+      next();
+    }
+  }else if(to.name !== 'login') {
+    // 登录状态判断 (未完成)
+    next();
+  }else {next();}
 });
 
-router.afterEach(() => {
-  console.log(App);
-});
-
-window.owari = function () {
-  var loader = document.getElementById('loader');
-  if (!!loader) {
-    loader.classList.add('over');
-    setTimeout(function() {
-      loader && loader.remove();
-    }, 2000);
+router.afterEach((r) => {
+  // console.log(r);
+  if(r.name) {
+    document.title = r.name;
   }
-};
-
-window.$log = function(msg) {
-  console.log(msg);
-};
-
-router.redirect({
-  '*': "/"
 });
-router.start(App, document.body);
+
+new Vue({
+  el: '#app',
+  router,
+  render: h => h(App)
+});

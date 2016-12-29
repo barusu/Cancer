@@ -68,6 +68,9 @@
     background-color: #fff;
     padding: 0 6px;
     line-height: 2;
+    &::after {
+      content: ' ';
+    }
   }
   header li > ul > li:first-child {
     margin: 0;
@@ -83,12 +86,7 @@
   <header>
     <nav>
       <ul>
-        <li><a v-link="$route.name == 'CSS' ? '' : '/css'"><span>CSS</span></a></li>
-        <li><a v-link="$route.name == 'Admin' ? '' : '/admin'"><span>a</span></a></li>
-        <li><a v-link="'/'"><span>c</span></a></li>
-        <li><a v-link="'/'"><span>d</span></a></li>
-        <li><a v-link="'/'"><span>e</span></a></li>
-        <li><a v-link="'/'" class="conceal full"><span class="conceal full">负能量</span></a></li>
+        <template v-for="r in data"><li><router-link :to="r.link" v-html="r.name"></router-link></li>&nbsp;</template>
       </ul>
     </nav>
     <nav v-if="isOpen">
@@ -110,10 +108,15 @@
 
 <script>
   export default {
-    data () {
+    data() {
       return {
         isOpen: false
       };
+    },
+    props: {
+      data: {
+        type: Array
+      }
     }
   }
 </script>

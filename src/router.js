@@ -1,32 +1,50 @@
 /**
- * Created by shiro on 16/9/22.
+ * Created by aresn on 16/8/22.
  */
-const routers = {
-  '/': {
-    name: '',
-    component(resolve) {require(['./views/index.vue'], resolve); },
-  },
-  '/css': {
-    name: 'CSS',
-    component(resolve) {require(['./views/css.vue'], resolve); }
-  },
-  '/button': {
-    name: 'Button',
-    component(resolve) {require(['./views/button.vue'], resolve); }
-  },
-  '/admin': {
-    name: 'Admin',
-    component(resolve) {require(['./views/admin.vue'], resolve); },
-    subRoutes: {
-      '/': {
-        name: 'AdminIndex',
-        component(resolve) {require(['./views/adminindex.vue'], resolve); }
-      },
-      '/person': {
-        name: 'Person',
-        component(resolve) {require(['./views/person.vue'], resolve); }
+const routes = [
+  {
+    path: '/',
+    component(resolve) {
+      require(['./views/index.vue'], resolve);
+    },
+    children: [{
+      path: 'index',
+      component(resolve) {
+        require(['./views/index.vue'], resolve);
       }
+    }]
+  }, {
+    path: '/editor',
+    component(resolve) {
+      require(['./views/editor.vue'], resolve);
     }
+  }, {
+    path: '/project',
+    component(resolve) {
+      require(['./views/project.vue'], resolve);
+    }
+  }, {
+    path: '/rmsp',
+    name: '浙江省数据管理服务平台',
+    component(resolve) {
+      require(['./views/rmsp.vue'], resolve);
+    },
+    children: [{
+      path: 'login',
+      name: 'rmsp_login',
+      component(resolve) {
+        require(['./views/rmspLogin.vue'], resolve);
+      }
+    }]
+  }, {
+    path: '/login',
+    name: 'login',
+    component(resolve) {
+      require(['./views/login.vue'], resolve);
+    }
+  }, {
+    path: '*',
+    redirect: '/'
   }
-};
-export default routers;
+];
+export default routes;

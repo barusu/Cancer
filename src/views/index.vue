@@ -1,35 +1,38 @@
 <style>
-  .bread {
-    padding: 0 1em;
-    line-height: 2;
-    font-size: 24px;
+  .wrapper {
+    height: 100%;
+  }
+  main {
+    min-height: 200px;
   }
 </style>
-
 <template>
-  <main>
-    <div class="content">
-      <div class="bread">
-        <span v-html="$route.name" class="green"></span>
-      </div>
-      <router-view class="content-body"></router-view>
-    </div>
-  </main>
-  <xc-footer></xc-footer>
+  <div class="wrapper">
+    <xc-header></xc-header>
+    <main>
+      <h2>
+        <img src="../images/logo.png">
+      </h2>
+    </main>
+    <xc-footer></xc-footer>
+  </div>
 </template>
-
 <script>
+  import Header from 'components/header.vue';
   import Footer from 'components/footer.vue';
 
   export default {
+    filters: {},
+    components: {
+      'xc-header': Header,
+      'xc-footer': Footer
+    },
     data () {
       return {}
     },
-    methods: {},
-    components: {
-      'xc-footer': Footer
+    beforeDestroy () {
     },
-    ready () {},
-    beforeDestroy () {},
+    methods: {
+    }
   }
 </script>
