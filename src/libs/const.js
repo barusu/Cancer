@@ -6,12 +6,30 @@
 const CONSTANT = {
   host: 'http://122.224.144.76:8008/rmsp/'
 };
+export default CONSTANT;
+
+const URL = {
+  login: CONSTANT.host + 'login',
+  areatree: CONSTANT.host + 'System/Area/listForTree',
+  depttree: CONSTANT.host + 'resources/Department/listForTree',
+  deptbyuser: CONSTANT.host + 'resources/Department/listForUser'
+};
+export {URL};
 
 const NAV = [
   {name: 'Home', link: '/index'},
   {name: 'Editor', link: '/editor'},
   {name: 'Css', link: '/css'}
 ];
-
-export default CONSTANT;
 export {NAV};
+
+const TITLEMAP = {
+  login: '登录'
+};
+export {TITLEMAP};
+
+const MSG = {
+  ajaxerror: '系统异常',
+  dataerror: '数据异常'
+};
+export {MSG};
