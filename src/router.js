@@ -24,19 +24,6 @@ const routes = [
       require(['./views/project.vue'], resolve);
     }
   }, {
-    path: '/rmsp',
-    name: '浙江省数据管理服务平台',
-    component(resolve) {
-      require(['./views/rmsp.vue'], resolve);
-    },
-    children: [{
-      path: 'login',
-      name: 'rmsp_login',
-      component(resolve) {
-        require(['./views/rmspLogin.vue'], resolve);
-      }
-    }]
-  }, {
     path: '/login',
     name: 'login',
     component(resolve) {
