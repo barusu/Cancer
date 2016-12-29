@@ -1,0 +1,35 @@
+/**
+ * Created by shiro on 16/12/25.
+ */
+
+/* table style */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #d6d6d6;
+  color: #333;
+  th {
+    font-size: 25px;
+    text-align: left;
+  }
+  thead {
+    background-color: rgba(0,0,0,.1);
+  }
+  .sequence {
+    text-align: center;
+  }
+  tr.select {
+    box-shadow: 0px 0px 10px 1px #bdbdbd;
+  }
+}
+tbody {
+  tr {
+    border-top: 1px solid #d6d6d6;
+    padding: .5em 0;
+    line-height: 1.8;
+    font-size: 16px;
+  }
+  tr:nth-child(even) {
+    background-color: rgba(0,0,0,.05);
+  }
+}
