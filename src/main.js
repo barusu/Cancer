@@ -6,7 +6,7 @@ import VueRouter from 'vue-router';
 import Routers from './router';
 import Env from './config/env';
 import App from './views/app';
-import store from './libs/store';
+import store from './libs/store/lawliet';
 import {TITLEMAP} from './libs/const';
 
 Vue.use(VueRouter);
