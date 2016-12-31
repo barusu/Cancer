@@ -5,7 +5,7 @@
     min-height: 400px;
     background-size: 100%;
     background-position: bottom center;
-    background-image: url('../images/bg.jpg');
+    background-image: url('../images/bg1.jpg');
     overflow: hidden;
   }
   .login .form-wrapper {
@@ -15,7 +15,7 @@
     width: 20rem;
     height: 18rem;
     margin-top: -9rem;
-    background-color: #fff;
+    background-color: rgba(255,255,255,.85);
   }
   .login .form-header {
     padding: 1rem .5rem .8rem;
@@ -50,6 +50,9 @@
     height: .7rem;
     background: url('../images/error.png') center / .7rem auto no-repeat;
     margin-right: .5em;
+  }
+  .login .form-field {
+    background-color: rgba(255,255,255,.9);
   }
   .login .anime-spin-after .form-field {
     padding-right: 2em;
@@ -154,6 +157,7 @@
           this.errorMsg = '用户不存在';
           this.userError = true;
         }else if(data.length === 1) {
+          this.errorMsg = '';
           this.departmentId = data[0].id;
           this.depts = [];
           if(this.isLogin) {

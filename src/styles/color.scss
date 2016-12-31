@@ -2,6 +2,7 @@
 /* global color config */
 
 $defaultFontColor: #444;
+$backgroundColor: #dcdcdc;
 
 $redColor: #d73d0e;
 $azureColor: #1871d7;
@@ -16,7 +17,7 @@ $errorColor: #fc615d;
 $cancelColor: #ababab;
 
 body {
-  background-color: lighten($mintgreenColor, 30%);
+  background-color: $backgroundColor;
 }
 header,
 footer {
@@ -105,60 +106,70 @@ span {
 
 .btn {
   &.primary {
+    color: #fff;
     background-color: lighten($primaryColor, 5%);
     border-color: $primaryColor;
     &:hover {background-color: $primaryColor; }
     &:active {background-color: darken($primaryColor, 5%); }
   }
   &.info {
+    color: #fff;
     background-color: lighten($infoColor, 5%);
     border-color: $infoColor;
     &:hover {background-color: $infoColor; }
     &:active {background-color: darken($infoColor, 5%); }
   }
   &.success {
+    color: #fff;
     background-color: lighten($successColor, 5%);
     border-color: $successColor;
     &:hover {background-color: $successColor; }
     &:active {background-color: darken($successColor, 5%); }
   }
   &.warning {
+    color: #fff;
     background-color: lighten($warningColor, 5%);
     border-color: $warningColor;
     &:hover {background-color: $warningColor; }
     &:active {background-color: darken($warningColor, 5%); }
   }
   &.error {
+    color: #fff;
     background-color: lighten($errorColor, 5%);
     border-color: $errorColor;
     &:hover {background-color: $errorColor; }
     &:active {background-color: darken($errorColor, 5%); }
   }
   &.cancel {
+    color: #fff;
     background-color: lighten($cancelColor, 5%);
     border-color: $cancelColor;
     &:hover {background-color: $cancelColor; }
     &:active {background-color: darken($cancelColor, 5%); }
   }
   &.azure {
+    color: #fff;
     background-color: lighten($azureColor, 5%);
     border-color: $azureColor;
     &:hover {background-color: $azureColor; }
     &:active {background-color: darken($azureColor, 5%); }
   }
   &.green {
+    color: #fff;
     background-color: lighten($greenColor, 5%);
     border-color: $greenColor;
     &:hover {background-color: $greenColor; }
     &:active {background-color: darken($greenColor, 5%); }
   }
   &.red {
+    color: #fff;
     background-color: lighten($redColor, 5%);
     border-color: $redColor;
     &:hover {background-color: $redColor; }
     &:active {background-color: darken($redColor, 5%); }
   }
   &.mintgreen {
+    color: #fff;
     background-color: darken($mintgreenColor, 10%);
     border-color: darken($mintgreenColor, 15%);
     &:hover {background-color: darken($mintgreenColor, 15%); }
