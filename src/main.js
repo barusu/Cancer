@@ -8,6 +8,7 @@ import Env from './config/env';
 import App from './views/app';
 import store from './libs/store/lawliet';
 import {TITLEMAP} from './libs/const';
+import $ from 'jquery';
 
 Vue.use(VueRouter);
 
@@ -34,6 +35,15 @@ router.beforeEach((to, from, next) => {
 router.afterEach((r) => {
   if(r.name) {
     document.title = TITLEMAP[r.name];
+  }
+});
+
+$.ajaxSetup({
+  timeout: 3000,
+  dataType: 'json',
+  error(xhr, e) {
+    console.log(xhr.url);
+    console.log(e);
   }
 });
 

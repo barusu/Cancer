@@ -4,7 +4,7 @@
  * Created by Shiro on 16/12/20.
  */
 const CONSTANT = {
-  host: 'http://122.224.144.76:8008/rmsp/'
+  host: 'http://lawliet.cc/'
 };
 export default CONSTANT;
 

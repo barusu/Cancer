@@ -69,18 +69,6 @@
     height: .8rem;
     background: url('../images/loading.png') top left / .8rem auto no-repeat;
   }
-  .dept-list {
-    padding: .1rem .5rem;
-    box-shadow: 0 0 .25rem 0 #eee inset;
-    background: #f7f7f7;
-    margin-bottom: .7rem;
-  }
-  .dept-list > .btn {
-    font-size: .7rem;
-    border-radius: 0;
-    border-color: #dcdcdc;
-    margin: .4rem 0;
-  }
 </style>
 
 <template>
@@ -91,14 +79,11 @@
       </div>
       <div class="form-body">
         <label :class="{'anime-spin-after': userVerify}">
-          <input type="text" class="form-field" :class="{'error': userError || errorTip && !loginName}" v-model="loginName" placeholder="用户名" @blur="getDept" autofocus>
+          <input type="text" class="form-field" :class="{'error': userError || errorTip && !loginName}" v-model="loginName" placeholder="用户名" @blur="verifyName" autofocus>
         </label>
         <label>
           <input type="password" class="form-field" :class="{'error': errorTip && !password}" v-model="password" placeholder="密码">
         </label>
-        <div class="dept-list" v-show="depts.length">
-          <div class="dept-item btn noselect" :class="{'info': departmentId === dept.id}" v-for="dept in depts" v-html="dept.fullname" @click="departmentId = dept.id"></div>
-        </div>
         <div class="msg" v-html="errorMsg" v-show="errorMsg"></div>
         <label>
           <button type="button" class="login-btn btn info" @click="login">登录</button>
@@ -118,81 +103,36 @@
       return {
         loginName: '',
         password: '',
-        departmentId: '',
         errorMsg: '',
         userVerify: false,
         isLogin: false,
         errorTip: false,
-        userError: false,
-        depts: [],
-        cache: {}
+        userError: false
       };
     },
     methods: {
-      getDept() {
-        if(!this.loginName) {return;}
-        this.userError = false;
-        // 尝试读取缓存
-        if(this.cache[this.loginName]) {
-          this.setDept(this.cache[this.loginName]);
-          return;
-        }
-        // 获取用户的部门信息
-        var that = this;
-        var loginName = this.loginName;
-        this.userVerify = true;
-        $.post(url.deptbyuser, {userName: loginName}, function(data) {
-          that.userVerify = false;
-          if(Array.isArray(data)) {
-            that.cache[loginName] = data;
-            that.setDept(data);
-          }else {that.errorMsg = Msg.dataerror;}
-        }, 'json').fail(function() {
-          that.errorMsg = Msg.ajaxerror;
-          that.userVerify = false;
-        });
-      },
-      setDept(data) {
-        if(!data.length) {
-          this.errorMsg = '用户不存在';
-          this.userError = true;
-        }else if(data.length === 1) {
-          this.errorMsg = '';
-          this.departmentId = data[0].id;
-          this.depts = [];
-          if(this.isLogin) {
-            this.isLogin = false;
-            this.login();
-          }
-        }else {this.depts = data;}
-      },
+      verifyName() {},
       login() {
         var that = this;
         if(this.loginName && this.password) {
-          if(this.departmentId && !this.userVerify) {
-            $.get(url.login, {
-              'loginName': this.loginName,
-              'password': this.password,
-              'department.id': this.departmentId
-            }, function(data) {
-              if(data && data.status) {
+          $.ajax({
+            url: url.login,
+            headers: {
+              'Authorization': 'Basic ' + btoa(unescape(encodeURIComponent(that.loginName + ':' + that.password)))
+            },
+            success(data) {
+              if(data && data.id) {
                 store.setUser(data);
                 store.updateCache();
                 that.$router.replace('index');
               }else {
                 that.errorMsg = data && data.info || Msg.dataerror;
               }
-            }, 'json').fail(function() {
-              that.errorMsg = Msg.ajaxerror;
-            });
-          }else {
-            this.isLogin = true;
-            if(!this.userVerify) {this.getDept();}
-          }
+            }
+          });
         }else {this.errorTip = true;}
       }
     },
-    beforeDestroy () {
-    }
+    beforeDestroy () {}
   }
 </script>
