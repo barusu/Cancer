@@ -1,15 +1,20 @@
 <style>
   header {
-    height: 44px;
-    font-size: 16px;
+    height: 3em;
+    font-size: .6rem;
   }
   header nav {
     display: block;
-    height: 44px;
+    height: 100%;
     max-width: 980px;
     margin: 0 auto;
     padding: 0 22px;
     z-index: 2;
+  }
+  header .user {
+    float: right;
+    width: 10em;
+    height: 100%;
   }
   header nav > ul {
     height: 44px;
@@ -84,6 +89,7 @@
 
 <template>
   <header>
+    <div class="user"></div>
     <nav>
       <ul>
         <template v-for="r in data"><li><router-link :to="r.link" v-html="r.name"></router-link></li>&nbsp;</template>

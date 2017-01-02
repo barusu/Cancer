@@ -42,7 +42,7 @@ $.ajaxSetup({
   timeout: 3000,
   dataType: 'json',
   error(xhr, e) {
-    console.log(xhr.url);
+    console.log(xhr);
     console.log(e);
   }
 });
