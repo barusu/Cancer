@@ -1,4 +1,9 @@
-<style>@import '../styles/reset.css';</style>
+<style>
+  @import '../styles/reset.css';
+  html {
+    font-size: 20px;
+  }
+</style>
 <style lang="sass">@import '../styles/common.scss';</style>
 
 <template>
