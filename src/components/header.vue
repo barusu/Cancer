@@ -1,4 +1,7 @@
 <style>
+  body header {
+    padding: 0 1.5rem;
+  }
   header {
     height: 3em;
     font-size: .6rem;
@@ -6,10 +9,8 @@
   header nav {
     display: block;
     height: 100%;
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 0 22px;
-    z-index: 2;
+    z-index: 1;
+    overflow: hidden;
   }
   header .user {
     float: right;
