@@ -33,3 +33,8 @@ const MSG = {
   dataerror: '数据异常'
 };
 export {MSG};
+
+const MAP = {
+  sex: ['女', '男']
+};
+export {MAP}

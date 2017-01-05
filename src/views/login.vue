@@ -94,8 +94,8 @@
 </template>
 
 <script>
-  import {URL as url, MSG as Msg} from '../libs/const';
-  import store from '../libs/store/lawliet';
+  import {URL as url, MSG as Msg} from 'libs/const';
+  import store from 'libs/store/lawliet';
   import $ from 'jquery';
 
   export default {

@@ -53,6 +53,7 @@ module.exports = {
     alias: {
       filter: path.join(__dirname, './src/filters'),
       components: path.join(__dirname, './src/components'),
+      libs: path.join(__dirname, './src/libs'),
       vue: 'vue/dist/vue.js'
     }
   },
