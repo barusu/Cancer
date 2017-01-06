@@ -3,9 +3,7 @@
     position: relative;
     height: 100%;
     min-height: 400px;
-    background-size: 100%;
-    background-position: bottom center;
-    background-image: url('../images/bg1.jpg');
+    background: url('../images/bg1.jpg') bottom center / 100% auto no-repeat;
     overflow: hidden;
   }
   .login .form-wrapper {
