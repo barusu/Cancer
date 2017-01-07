@@ -6,17 +6,62 @@
     height: 3em;
     font-size: .6rem;
   }
+  header .bgdiv {
+    position: absolute;
+    top: 0; left: 0;
+    background: inherit;
+    width: 100%;
+    height: 1.8rem;
+    overflow: hidden;
+    z-index: 1;
+  }
+  header .bgdiv::before {
+    content: "";
+    position: absolute;
+    top: -10px; left: -20px;
+    display: block;
+    width: 100%;
+    height: 56px;
+    padding: 0 20px;
+    background: inherit;
+    background-position: 50% 0;
+    filter: blur(5px);
+  }
   header nav {
     display: block;
     height: 100%;
-    z-index: 1;
     overflow: hidden;
   }
   header .user {
     float: right;
-    width: 10em;
+    width: 13rem;
     height: 100%;
+    pointer-events: none;
   }
+  header .user .headImg {
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 1.8rem;
+    cursor: default;
+  }
+  header .headImg img {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: .1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .5s;
+    pointer-events: auto;
+  }
+  header .user .profile {
+    background-color: #fff;
+    border-radius: 0 0 4px 4px;
+    pointer-events: auto;
+  }
+
+
+
   header nav > ul {
     height: 44px;
     width: auto;
@@ -90,7 +135,26 @@
 
 <template>
   <header>
-    <div class="user"></div>
+    <div class="bgdiv"></div>
+    <div class="user">
+      <div class="headImg"><img src="http://i1.hdslb.com/bfs/face/9529116397158d565fe4ed2121b7c9c963f1db65.jpg"></div>
+      <div class="profile">
+        <div class="user-info"></div>
+        <div class="user-info">
+          <i class="fa fa-mars"></i>
+          <span class="user-name">Shiro</span>
+          <i class="fa fa-venus-mars"></i>
+        </div>
+        <ul class="menu">
+          <li><span><i class="fa fa-bank"></i>用户中心</span></li>
+          <li><span><i class="fa fa-bank"></i>修改密码</span></li>
+          <li><span><i class="fa fa-bank"></i>用户中心</span></li>
+        </ul>
+        <div class="bottom">
+          <button type="button">退出</button></div>
+        </div>
+      </div>
+    </div>
     <nav>
       <ul>
         <template v-for="r in data"><li><router-link :to="r.link" v-html="r.name"></router-link></li>&nbsp;</template>

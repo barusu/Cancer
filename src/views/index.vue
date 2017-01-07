@@ -7,19 +7,6 @@
     position: relative;
     background: inherit;
     background-position: 50% -100%;
-    overflow: hidden;
-  }
-  header::before {
-    content: "";
-    position: absolute;
-    top: -10px; left: -20px;
-    display: block;
-    width: 100%;
-    height: 56px;
-    padding: 0 20px;
-    background: inherit;
-    background-position: 50% 0;
-    filter: blur(5px);
   }
   header::after {
     content: "";
@@ -29,7 +16,7 @@
     width: 100%;
     height: 36px;
     background: rgba(255,255,255,.4);
-    z-index: 0;
+    z-index: 2;
   }
   header > div,
   header > nav {
