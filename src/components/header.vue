@@ -45,7 +45,7 @@
     height: 1.8rem;
     cursor: default;
   }
-  header .headImg img {
+  .user .user-img {
     width: 1.6rem;
     height: 1.6rem;
     margin: .1rem;
@@ -54,15 +54,31 @@
     transition: all .5s;
     pointer-events: auto;
   }
-  header .user .profile {
+  .user:hover .user-img {
+    width: 3rem;
+    height: 3rem;
+    margin: .2rem;
+  }
+  .user .profile {
     background-color: #fff;
     border-radius: 0 0 4px 4px;
     pointer-events: auto;
   }
+  .user .profile > div {
+    transition: height 500ms;
+  }
+  .user .profile .user-info {
+    height: 0;
+    overflow: hidden;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 2;
+  }
 
 
 
-  header nav > ul {
+/*   header nav > ul {
     height: 44px;
     width: auto;
     text-align: justify;
@@ -87,10 +103,10 @@
     font-size: 16px;
     line-height: 2.75;
     cursor: pointer;
-  }
+  } */
 
 
-  header nav > ul > li:first-child {
+  /* header nav > ul > li:first-child {
     margin: 0;
     border-radius: 3px 0 0 3px;
   }
@@ -130,14 +146,14 @@
     top: 35px;
     opacity: 1;
     visibility: visible;
-  }
+  } */
 </style>
 
 <template>
   <header>
     <div class="bgdiv"></div>
     <div class="user">
-      <div class="headImg"><img src="http://i1.hdslb.com/bfs/face/9529116397158d565fe4ed2121b7c9c963f1db65.jpg"></div>
+      <div class="headImg"><img class="user-img" src="http://i1.hdslb.com/bfs/face/9529116397158d565fe4ed2121b7c9c963f1db65.jpg"></div>
       <div class="profile">
         <div class="user-info"></div>
         <div class="user-info">
