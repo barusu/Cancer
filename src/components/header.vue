@@ -1,6 +1,6 @@
 <style>
   body header {
-    padding: 0 1.5rem;
+    padding: 0 1.5rem 0 5%;
   }
   header {
     height: 3em;
@@ -30,7 +30,7 @@
   header nav {
     display: block;
     height: 100%;
-    overflow: hidden;
+    padding: 0 0 0 1.5rem;
   }
   header .user {
     float: right;
@@ -138,32 +138,25 @@
 
 
 
-/*   header nav > ul {
-    height: 44px;
+  header > nav > ul {
+    height: 100%;
     width: auto;
-    text-align: justify;
     user-select: none;
-    margin: 0 -10px;
+    margin: 0;
   }
-  header nav > ul::after {
-    content: "";
-    display: inline-block;
-    width: 100%;
-    line-height: 0;
-    font-size: 0;
-  }
-  header nav > ul > li {
-    height: 44px;
+
+  header > nav > ul > li {
+    height: 100%;
     display: inline-block;
   }
   header li > a {
     display: inline-block;
-    height: 44px;
-    padding: 0 10px;
-    font-size: 16px;
-    line-height: 2.75;
+    height: 100%;
+    padding: 0 .5rem;
+    font-size: .6rem;
+    line-height: 1.8rem;
     cursor: pointer;
-  } */
+  }
 
 
   /* header nav > ul > li:first-child {
@@ -231,8 +224,8 @@
       </div>
     </div>
     <nav>
-      <ul>
-        <template v-for="r in data"><li><router-link :to="r.link" v-html="r.name"></router-link></li>&nbsp;</template>
+      <ul class="clearfix">
+        <li v-for="r in data"><router-link :to="r.link" v-html="r.name"></router-link></li>
       </ul>
     </nav>
     <nav v-if="isOpen">
