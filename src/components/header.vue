@@ -62,18 +62,78 @@
   .user .profile {
     background-color: #fff;
     border-radius: 0 0 4px 4px;
+    transition: all 500ms;
+    padding-top: 0;
+    color: #444;
+    font-size: .7rem;
     pointer-events: auto;
   }
-  .user .profile > div {
-    transition: height 500ms;
+  .user:hover .profile {
+    padding-top: 1.6rem;
+  }
+  .user-name {
+    font-weight: 600;
+  }
+  .user .profile .hover-tag {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 500ms;
+  }
+  .user:hover .profile .hover-tag {
+    max-height: 2em;
   }
   .user .profile .user-info {
-    height: 0;
-    overflow: hidden;
     text-align: center;
     font-size: 12px;
-    font-weight: bold;
     line-height: 2;
+    overflow: hidden;
+  }
+  .profile .menu {
+    margin: 0 1em;
+  }
+  .profile .menu::before {
+    content: "";
+    display: block;
+    height: 0;
+    box-shadow: 0 -1px 0 0 #ccc;
+  }
+  .user:hover .profile .menu::before {
+    height: .2rem;
+  }
+  .profile .menu > li {
+    display: inline-block;
+    float: left;
+    width: 50%;
+    line-height: 2;
+    overflow: hidden;
+  }
+  .profile .menu > li > span {
+    line-height: 1;
+    cursor: pointer;
+  }
+  .profile .menu i.base {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin: 0 .5em 0 1em;
+  }
+  .profile .foot {
+    overflow: hidden;
+    line-height: 2;
+    background-color: rgba(0,0,0,.1);
+    text-align: right;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  .profile .foot > button {
+    padding: 0;
+    border: 0;
+    font-size: inherit;
+    background: transparent;
+    cursor: pointer;
+  }
+  .base.img-user {
+    background: url('../images/user.png') 50% 50% / 100% auto no-repeat;
   }
 
 
@@ -155,18 +215,17 @@
     <div class="user">
       <div class="headImg"><img class="user-img" src="http://i1.hdslb.com/bfs/face/9529116397158d565fe4ed2121b7c9c963f1db65.jpg"></div>
       <div class="profile">
-        <div class="user-info"></div>
-        <div class="user-info">
+        <div class="user-info hover-tag">
           <i class="fa fa-mars"></i>
           <span class="user-name">Shiro</span>
           <i class="fa fa-venus-mars"></i>
         </div>
-        <ul class="menu">
-          <li><span><i class="fa fa-bank"></i>用户中心</span></li>
-          <li><span><i class="fa fa-bank"></i>修改密码</span></li>
-          <li><span><i class="fa fa-bank"></i>用户中心</span></li>
+        <ul class="menu clearfix">
+          <li class="hover-tag"><span><i class="base img-user"></i>用户中心</span></li>
+          <li class="hover-tag"><span><i class="base img-user"></i>修改密码</span></li>
+          <li class="hover-tag"><span><i class="base img-user"></i>用户中心</span></li>
         </ul>
-        <div class="bottom">
+        <div class="foot hover-tag">
           <button type="button">退出</button></div>
         </div>
       </div>
