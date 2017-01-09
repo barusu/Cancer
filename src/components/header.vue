@@ -148,11 +148,14 @@
   header > nav > ul > li {
     height: 100%;
     display: inline-block;
+    padding: 0 .5rem;
+  }
+  header > nav li:hover {
+    background: rgba(255,255,255,.1);
   }
   header li > a {
     display: inline-block;
     height: 100%;
-    padding: 0 .5rem;
     font-size: .6rem;
     line-height: 1.8rem;
     cursor: pointer;
