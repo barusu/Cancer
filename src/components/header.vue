@@ -1,11 +1,13 @@
 <style>
   body header {
     padding: 0 1.5rem 0 5%;
+    color: #444;
   }
   header {
     height: 3em;
     font-size: .6rem;
   }
+
   header .bgdiv {
     position: absolute;
     top: 0; left: 0;
@@ -27,11 +29,7 @@
     background-position: 50% 0;
     filter: blur(5px);
   }
-  header nav {
-    display: block;
-    height: 100%;
-    padding: 0 0 0 1.5rem;
-  }
+
   header .user {
     float: right;
     width: 13rem;
@@ -78,6 +76,9 @@
     max-height: 0;
     overflow: hidden;
     transition: all 500ms;
+  }
+  .user .profile li.hover-tag:hover {
+    color: #f77;
   }
   .user:hover .profile .hover-tag {
     max-height: 2em;
@@ -130,34 +131,80 @@
     border: 0;
     font-size: inherit;
     background: transparent;
+    color: inherit;
     cursor: pointer;
   }
   .base.img-user {
     background: url('../images/user.png') 50% 50% / 100% auto no-repeat;
   }
 
-
-
+  header nav {
+    display: block;
+    height: 100%;
+    padding: 0 0 0 1.5rem;
+    float: left;
+  }
   header > nav > ul {
     height: 100%;
     width: auto;
     user-select: none;
     margin: 0;
   }
-
   header > nav > ul > li {
+    position: relative;
     height: 100%;
     display: inline-block;
-    padding: 0 .5rem;
   }
-  header > nav li:hover {
+  nav > ul > li:hover {
     background: rgba(255,255,255,.1);
+  }
+  .liste {
+    position: absolute;
+    background: rgba(255,255,255,.8);
+    width: 10em;
+    font-size: .6rem;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+  }
+  .liste > li {
+    max-height: 0;
+    transition: all .3s;
+    line-height: 2;
+    padding: 0 1em;
+    overflow: hidden;
+  }
+  .liste > li::before {
+    content: "";
+    display: inline-block;
+    border: 2px solid #4dd0e1;
+    border-width: 2px 2px 0 0;
+    border-radius: 0 1px 0 0;
+    width: .5em;
+    height: .5em;
+    box-sizing: border-box;
+    transform: rotate(45deg);
+    margin: 0 1em 0 0;
+    transition: all .3s;
+  }
+  .liste > li:hover {
+    background: rgba(255,255,255,.5);
+  }
+  .liste > li:hover::before {
+    margin: 0 .8em 0 .4em;
+  }
+  nav > ul > li:hover .liste {
+    z-index: 999;
+  }
+  nav > ul > li:hover .liste > li {
+    max-height: 2em;
   }
   header li > a {
     display: inline-block;
     height: 100%;
+    padding: 0 1em;
     font-size: .6rem;
     line-height: 1.8rem;
+    color: inherit;
     cursor: pointer;
   }
 
@@ -228,7 +275,16 @@
     </div>
     <nav>
       <ul class="clearfix">
-        <li v-for="r in data"><router-link :to="r.link" v-html="r.name"></router-link></li>
+        <li v-for="r in data">
+          <router-link :to="r.link" v-html="r.name"></router-link>
+          <ul class="liste">
+            <li>test1</li>
+            <li>test2</li>
+            <li>test3</li>
+            <li>test4</li>
+            <li>test5</li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <nav v-if="isOpen">
