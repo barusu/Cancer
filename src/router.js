@@ -30,6 +30,12 @@ const routes = [
       require(['./views/login.vue'], resolve);
     }
   }, {
+    path: '/login_air',
+    name: 'login',
+    component(resolve) {
+      require(['./views/login_air'], resolve);
+    }
+  }, {
     path: '*',
     redirect: '/'
   }
