@@ -2,6 +2,18 @@
  * Created by shiro on 16/12/25.
  */
 
+.anime-breath {
+  animation: breath 3s infinite ease-out alternate;
+}
+@keyframes breath {
+  0% {
+    box-shadow: 0 0 20px 0 #fff;
+  }
+  100% {
+    box-shadow: 0 0 5px 0 #fff;
+  }
+}
+
 .anime-spin-before::before,
 .anime-spin-after::after,
 .anime-spin {
