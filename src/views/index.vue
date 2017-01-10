@@ -1,7 +1,9 @@
 <style>
   .wrapper {
     height: 100%;
-    background: url('../images/bg1.jpg') 50% -10px / 100% auto repeat-y;
+  }
+  .wrapper.index {
+    background: url('../images/bg1.jpg') 50% -10px / cover repeat-y;
   }
   header {
     position: relative;
@@ -28,7 +30,7 @@
   }
 </style>
 <template>
-  <div class="wrapper">
+  <div class="wrapper index">
     <xc-header :data="nav"></xc-header>
     <main>
       <h2>
