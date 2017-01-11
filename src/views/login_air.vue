@@ -32,6 +32,15 @@
       float: right;
       background: rgba(255,255,255,.25);
     }
+    .form-body {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      height: 18rem;
+      margin: -9rem 0 0;
+      padding: 0 2rem;
+      font-size: .7rem;
+    }
     .login-title {
       position: relative;
       top: 10%;
@@ -53,13 +62,25 @@
       }
     }
     .head-img {
-      padding: 1em;
+      padding: 1em 0;
       text-align: center;
       > img {
         width: 8rem;
         height: 8rem;
         border-radius: 50%;
       }
+    }
+    .form-group {
+      margin: 0 0 1em;
+    }
+    .form-field {
+      padding: 0 .5em;
+      border: 0;
+    }
+    .msg {
+      margin: -.5em 0 0;
+      font-size: 12px;
+      color: #b22;
     }
   }
 </style>
@@ -71,16 +92,16 @@
         <div class="head-img">
           <img src="../images/head.jpg" class="anime-breath" alt="headImg">
         </div>
-        <label :class="{'anime-spin-after': userVerify}">
-          <input type="text" class="form-field" :class="{'error': userError || errorTip && !loginName}" v-model="loginName" placeholder="用户名" @blur="verifyName" autofocus>
+        <label class="form-group">
+          <input type="text" class="form-field" v-model="loginName" placeholder="用户名" @blur="verifyName" autofocus>
         </label>
-        <label>
-          <input type="password" class="form-field" :class="{'error': errorTip && !password}" v-model="password" placeholder="密码">
-        </label>
-        <div class="msg" v-html="errorMsg" v-show="errorMsg"></div>
-        <label>
-          <button type="button" class="login-btn btn info" @click="login">登录</button>
-        </label>
+        <div class="form-group">
+          <span class="btn goto" @click="login"></span>
+          <label>
+            <input type="password" class="form-field" v-model="password" placeholder="密码">
+          </label>
+        </div>
+        <div class="msg" v-html="ErrorMsg" v-show="errorTip"></div>
       </div>
     </div>
     <div class="login-title" data-en="your name and password.">君の名は。</div>
@@ -98,10 +119,7 @@
         loginName: '',
         password: '',
         errorMsg: '',
-        userVerify: false,
-        isLogin: false,
-        errorTip: false,
-        userError: false
+        errorTip: false
       };
     },
     methods: {
@@ -121,10 +139,21 @@
                 that.$router.replace('index');
               }else {
                 that.errorMsg = data && data.info || Msg.dataerror;
+                that.errorTip = true;
               }
             }
           });
         }else {this.errorTip = true;}
+      }
+    },
+    computed: {
+      ErrorMsg() {
+        if(!this.loginName) {this.errorMsg = '用户名不能为空';}
+        else if(!this.password) {this.errorMsg = '密码不能为空';}
+        else if(this.errorMsg === '用户名不能为空' || this.errorMsg === '密码不能为空') {
+          this.errorMsg = '';
+        }
+        return this.errorMsg;
       }
     },
     beforeDestroy () {}

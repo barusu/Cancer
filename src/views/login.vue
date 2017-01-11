@@ -51,6 +51,8 @@
   }
   .login .form-field {
     background-color: rgba(255,255,255,.9);
+    font-size: .7rem;
+    margin-bottom: 1em;
   }
   .login .anime-spin-after .form-field {
     padding-right: 2em;
