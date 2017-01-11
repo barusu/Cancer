@@ -7,11 +7,29 @@ $redColor: #f00 !default;
 .form-field {
   width: 100%;
   padding: .5em 1em;
-  font-size: .7rem;
   line-height: 2;
   border: 1px solid #dcdcdc;
-  margin-bottom: 1em;
   &.error {
     border-color: $redColor;
+  }
+}
+.form-group {
+  display: block;
+  height: 2em;
+  > .btn {
+    display: block;
+    width: 2em;
+    height: 100%;
+    float: right;
+    border-radius: 0;
+    &.goto {
+      position: relative;
+      border: 0;
+      background: hsla(0,0%,100%,.34) url(../images/arrow.png) 50% 50% / 75% auto no-repeat;
+    }
+  }
+  > label {
+    display: block;
+    overflow: hidden;
   }
 }
