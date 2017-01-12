@@ -5,26 +5,6 @@
   .wrapper.index {
     background: url('../images/bg1.jpg') 50% -10px / cover repeat-y;
   }
-  header {
-    position: relative;
-    background: inherit;
-    background-position: 50% -100%;
-  }
-  header::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    display: block;
-    width: 100%;
-    height: 36px;
-    background: rgba(255,255,255,.4);
-    z-index: 2;
-  }
-  header > div,
-  header > nav {
-    position: relative;
-    z-index: 4;
-  }
   main {
     min-height: 200px;
   }
