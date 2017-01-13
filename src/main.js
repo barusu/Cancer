@@ -34,7 +34,7 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((r) => {
   if(r.name) {
-    document.title = TITLEMAP[r.name];
+    document.title = TITLEMAP[r.name] || '星の形';
   }
 });
 

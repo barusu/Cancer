@@ -5,36 +5,29 @@
   .wrapper.index {
     background: url('../images/bg1.jpg') 50% -10px / cover repeat-y;
   }
-  main {
+  .main {
+    height: 100%;
     min-height: 200px;
+    margin: -1.8rem 0 0;
+    padding: 1.8rem 0 0;
   }
 </style>
 <template>
   <div class="wrapper index">
-    <xc-header :data="nav"></xc-header>
-    <main>
-      <h2>
-        <img src="../images/logo.png">
-      </h2>
-    </main>
-    <xc-footer></xc-footer>
+    <xc-header></xc-header>
+    <router-view class="main"></router-view>
   </div>
 </template>
 <script>
   import Header from 'components/header.vue';
-  import Footer from 'components/footer.vue';
-  import {NAV} from '../libs/const';
 
   export default {
     filters: {},
     components: {
-      'xc-header': Header,
-      'xc-footer': Footer
+      'xc-header': Header
     },
     data () {
-      return {
-        nav: NAV
-      }
+      return {}
     },
     beforeDestroy () {
     },

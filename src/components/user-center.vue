@@ -122,7 +122,7 @@
         <i class="fa fa-venus-mars"></i>
       </div>
       <ul class="menu clearfix">
-        <li class="hover-tag"><span><i class="base img-user"></i>用户中心</span></li>
+        <li class="hover-tag" @click="go('user', {'userId': user.name})"><span><i class="base img-user"></i>用户中心</span></li>
         <li class="hover-tag"><span><i class="base img-user"></i>修改密码</span></li>
         <li class="hover-tag"><span><i class="base img-user"></i>用户中心</span></li>
       </ul>
@@ -146,6 +146,9 @@
       logout() {
         store.clear();
         this.$router.push('login');
+      },
+      go(name, params) {
+        this.$router.push({name: name, params: params});
       }
     }
   };

@@ -4,6 +4,7 @@
 const routes = [
   {
     path: '/',
+    name: 'index',
     component(resolve) {
       require(['./views/index.vue'], resolve);
     },
@@ -12,16 +13,17 @@ const routes = [
       component(resolve) {
         require(['./views/index.vue'], resolve);
       }
+    }, {
+      path: 'user/:userId',
+      name: 'user',
+      component(resolve) {
+        require(['./views/index.vue'], resolve);
+      }
     }]
   }, {
     path: '/editor',
     component(resolve) {
       require(['./views/editor.vue'], resolve);
-    }
-  }, {
-    path: '/project',
-    component(resolve) {
-      require(['./views/project.vue'], resolve);
     }
   }, {
     path: '/login',
