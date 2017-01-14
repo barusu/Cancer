@@ -17,7 +17,7 @@ const routes = [
       path: 'user/:userId',
       name: 'user',
       component(resolve) {
-        require(['./views/index.vue'], resolve);
+        require(['./views/user.vue'], resolve);
       }
     }]
   }, {
