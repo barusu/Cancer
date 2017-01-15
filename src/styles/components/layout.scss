@@ -1,0 +1,14 @@
+/**
+ * Created by shiro on 17/1/15.
+ */
+
+// 小标题
+.subhead {
+  display: flex;
+  flex-flow: row wrap;
+  > h2 {
+    flex: 1 1 auto;
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+}
