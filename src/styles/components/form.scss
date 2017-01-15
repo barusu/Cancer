@@ -5,7 +5,8 @@
 $redColor: #f00 !default;
 
 .form-field {
-  width: 100%;
+  width: 22rem;
+  max-width: 100%;
   padding: .5em 1em;
   line-height: 2;
   border: 1px solid #dcdcdc;
@@ -13,9 +14,25 @@ $redColor: #f00 !default;
     border-color: $redColor;
   }
 }
+
+dl.form-group {
+  margin: .7rem 0;
+  > dt {
+    margin-bottom: .3rem;
+  }
+  > dd {}
+  label {
+    font-weight: 600;
+  }
+  .form-field {
+    padding: .3rem .4rem;
+    line-height: 1rem;
+    border-radius: 3px;
+  }
+}
+
 .form-group {
   display: block;
-  height: 2em;
   > .btn {
     display: block;
     width: 2em;
@@ -33,3 +50,10 @@ $redColor: #f00 !default;
     overflow: hidden;
   }
 }
+
+input {
+  &[type=password] {
+    font-family: monospace;
+  }
+}
+
