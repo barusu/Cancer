@@ -26,13 +26,13 @@ const routes = [
       require(['./views/editor.vue'], resolve);
     }
   }, {
-    path: '/login',
-    name: 'login',
+    path: '/login_old',
+    name: 'login_old',
     component(resolve) {
       require(['./views/login.vue'], resolve);
     }
   }, {
-    path: '/login_air',
+    path: '/login',
     name: 'login',
     component(resolve) {
       require(['./views/login_air'], resolve);
