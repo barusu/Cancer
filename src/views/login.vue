@@ -126,7 +126,7 @@
                 store.updateCache();
                 that.$router.replace('index');
               }else {
-                that.errorMsg = data && data.info || Msg.dataerror;
+                that.errorMsg = data && data.info || Msg.dataError;
               }
             }
           });

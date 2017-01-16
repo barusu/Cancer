@@ -4,7 +4,7 @@
   <dl class="form-group" :class="{'error': isInput && !verify}">
     <dt><label :for="'field'+cc"><slot></slot></label></dt>
     <dd><input type="password" class="form-field" :class="statusStyle" @blur="isInput = true" @input="update($event.target.value)" :value="value" :id="'field'+cc"></dd>
-    <dd class="error" v-if="isInput && !verify" v-html="errorMsg"></dd>
+    <dd class="error" v-html="errorMsg"></dd>
   </dl>
 </template>
 
@@ -27,6 +27,7 @@
         type: Boolean,
         default: false
       },
+      confirm: String,
       msg: String,
       type: String,
       status: String
@@ -39,7 +40,11 @@
     computed: {
       verify() {
         if(this.require && !this.value.length) {
-          this.verifyMsg = msg.requireerror;
+          this.verifyMsg = msg.requireError;
+          return false;
+        }
+        if(this.confirm && this.confirm !== this.value) {
+          this.verifyMsg = this.value.length && msg.confirmError || msg.confirmMsg;
           return false;
         }
         return true;

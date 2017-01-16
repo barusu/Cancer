@@ -72,6 +72,7 @@
     }
     .form-group {
       margin: 0 0 1em;
+      height: 2em;
     }
     .form-field {
       padding: 0 .5em;
@@ -136,9 +137,9 @@
               if(data && data.id) {
                 store.setUser(data);
                 store.updateCache();
-                that.$router.replace('index');
+                that.$router.replace('/');
               }else {
-                that.errorMsg = data && data.info || Msg.dataerror;
+                that.errorMsg = data && data.info || Msg.dataError;
                 that.errorTip = true;
               }
             }

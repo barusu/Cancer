@@ -29,8 +29,11 @@ const TITLEMAP = {
 export {TITLEMAP};
 
 const MSG = {
-  ajaxerror: '系统异常',
-  dataerror: '数据异常'
+  ajaxError: '系统异常',
+  dataError: '数据异常',
+  requireError: '请填写此字段',
+  confirmMsg: '请再次输入',
+  confirmError: '两次输入不一致'
 };
 export {MSG};
 

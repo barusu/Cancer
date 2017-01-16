@@ -2,7 +2,8 @@
  * Created by shiro on 16/12/27.
  */
 
-$redColor: #f00 !default;
+$errorColor: #f00 !default;
+$focusColor: #03a9f4 !default;
 
 .form-field {
   width: 22rem;
@@ -11,23 +12,88 @@ $redColor: #f00 !default;
   line-height: 2;
   border: 1px solid #dcdcdc;
   &.error {
-    border-color: $redColor;
+    border-color: $errorColor;
   }
 }
 
 dl.form-group {
+  position: relative;
   margin: .7rem 0;
   > dt {
     margin-bottom: .3rem;
+    transition: all .3s ease-in-out .5s;
   }
-  > dd {}
+  > dd {
+    &.error {
+      position: absolute;
+      bottom: -3.5em;
+      padding: 0 .5em;
+      line-height: 2;
+      font-size: .6rem;
+      color: darken($errorColor, 25%);
+      background: lighten($errorColor, 25%);
+      border: 1px solid darken($errorColor, 10%);
+      border-radius: 3px;
+      z-index: 1;
+      visibility: hidden;
+      opacity: 0;
+      transition: all .3s ease-in-out .5s;
+      &::before,
+      &::after {
+        content: " ";
+        position: absolute;
+        border: 6px solid transparent;
+        border-bottom-color: inherit;
+        bottom: 100%;
+        left: .5em;
+        z-index: 1;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+      }
+      &::after {
+        margin-left: 1px;
+        border-bottom-color: lighten($errorColor, 25%);
+        border-width: 5px;
+      }
+    }
+  }
   label {
     font-weight: 600;
+  }
+  &.error {
+    color: $errorColor;
+    .error {
+      bottom: -2.5em;
+      visibility: visible;
+      opacity: 1;
+    }
   }
   .form-field {
     padding: .3rem .4rem;
     line-height: 1rem;
     border-radius: 3px;
+    background: #fafafa;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.075);
+    color: #333;
+    transition: all .3s;
+    &.bg-tag-error {
+      padding-right: 1.5rem;
+      background: #fafafa url(../images/error-tag.png) center right .4rem / .8rem auto no-repeat;
+    }
+    &.bg-tag-success {
+      padding-right: 1.5rem;
+      background: #fafafa url(../images/success-tag.png) center right .4rem / .8rem auto no-repeat;
+    }
+    &.bg-tag-loading {
+      padding-right: 1.5rem;
+      background: #fafafa url(../images/loading.gif) center right .4rem / .8rem auto no-repeat;
+    }
+    &:focus {
+      border-color: $focusColor;
+      background-color: #fff;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,.075), 0 0 5px rgba(81,167,232,0.5);
+    }
   }
 }
 
