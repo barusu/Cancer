@@ -16,7 +16,8 @@ $radius_size: 3px !default;
   &.en {
     padding: 3px 6px;
   }
-  &.disable {
+  &[disabled] {
+    filter: grayscale(100%);
     cursor: not-allowed;
   }
 }

@@ -29,6 +29,7 @@ const TITLEMAP = {
 export {TITLEMAP};
 
 const MSG = {
+  linkError: ' 无法连接到系统',
   ajaxError: '系统异常',
   dataError: '数据异常',
   requireError: '请填写此字段',

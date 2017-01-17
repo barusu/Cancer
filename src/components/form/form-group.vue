@@ -32,6 +32,11 @@
       type: String,
       status: String
     },
+    watch: {
+      confirm() {
+        this.isInput = false;
+      }
+    },
     methods: {
       update(value) {
         this.$emit('input', value);

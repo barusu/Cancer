@@ -127,9 +127,12 @@
       verifyName() {},
       login() {
         var that = this;
+        this.errorTip = true;
         if(this.loginName && this.password) {
+          this.errorMsg = '';
           $.ajax({
             url: url.login,
+            vm: this,
             headers: {
               'Authorization': 'Basic ' + btoa(unescape(encodeURIComponent(that.loginName + ':' + that.password)))
             },
@@ -140,11 +143,10 @@
                 that.$router.replace('/');
               }else {
                 that.errorMsg = data && data.info || Msg.dataError;
-                that.errorTip = true;
               }
             }
           });
-        }else {this.errorTip = true;}
+        }
       }
     },
     computed: {

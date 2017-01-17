@@ -7,7 +7,7 @@ import Routers from './router';
 import Env from './config/env';
 import App from './views/app';
 import store from './libs/store/lawliet';
-import {TITLEMAP} from './libs/const';
+import {TITLEMAP, MSG} from './libs/const';
 import $ from 'jquery';
 
 Vue.use(VueRouter);
@@ -41,9 +41,10 @@ router.afterEach((r) => {
 $.ajaxSetup({
   timeout: 3000,
   dataType: 'json',
-  error(xhr, e) {
-    console.log(xhr);
-    console.log(e);
+  error(xhr) {
+    if(xhr.readyState) {
+      if(this.vm) {this.vm.errorMsg = MSG.ajaxError;}
+    }else if(this.vm) {this.vm.errorMsg = MSG.linkError;}
   }
 });
 
