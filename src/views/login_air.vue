@@ -102,7 +102,7 @@
             <input type="password" class="form-field" v-model="password" placeholder="密码">
           </label>
         </div>
-        <div class="msg" v-html="ErrorMsg" v-show="errorTip"></div>
+        <div class="msg" v-html="ErrorMsg || globalMsg.ajax" v-show="errorTip"></div>
       </div>
     </div>
     <div class="login-title" data-en="your name and password.">君の名は。</div>
@@ -120,6 +120,7 @@
         loginName: '',
         password: '',
         errorMsg: '',
+        globalMsg: store.msg,
         errorTip: false
       };
     },
@@ -132,7 +133,6 @@
           this.errorMsg = '';
           $.ajax({
             url: url.login,
-            vm: this,
             headers: {
               'Authorization': 'Basic ' + btoa(unescape(encodeURIComponent(that.loginName + ':' + that.password)))
             },

@@ -60,11 +60,12 @@
           <h2>修改密码</h2>
         </div>
         <div class="form">
+          <div class="errorMsg" v-html="errorMsg"></div>
           <form-group v-model="oldPassword" :require="true" :status="status">旧密码</form-group>
           <form-group v-model="newPassword" :require="true">新密码</form-group>
           <form-group v-model="confirmPassword" :confirm="newPassword">确认新密码</form-group>
           <div class="action-group">
-            <button type="button" class="btn info" :disabled="verify" @click="updateVerify">更新密码</button>
+            <button type="button" class="btn info" :disabled="verify" @click="update">更新密码</button>
           </div>
         </div>
       </div>
@@ -74,6 +75,9 @@
 
 <script>
   import formGroup from 'components/form/form-group';
+  import store from 'libs/store/lawliet';
+  import {URL as url, MSG as Msg} from 'libs/const';
+  import $ from 'jquery';
 
   export default {
     data() {
@@ -82,7 +86,9 @@
         newPassword: '',
         confirmPassword: '',
         status: '',
-        verify: true
+        verify: true,
+        lock: false,
+        errorMsg: ''
       };
     },
     watch: {
@@ -95,14 +101,31 @@
     },
     methods: {
       updateVerify() {
+        this.lock = true;
         this.$nextTick(() => {
           this.verify = this.$children.some((i) => {
             return i.verify === false;
           });
+          this.lock = false;
         });
       },
-      test() {
-        console.log('s');
+      update() {
+        var that = this;
+        if(!this.lock && !this.verify) {
+          this.status = "loading";
+          $.post(url.account, {
+            methods: 'chang_password',
+            uid: store.state.uid,
+            old: this.oldPassword,
+            new: this.newPassword
+          }, (data) => {
+            if(data && data.status) {
+              console.log(data);
+            }else if(data) {
+              that.errorMsg = data.info || Msg.dataError;
+            }
+          });
+        }
       }
     },
     computed: {

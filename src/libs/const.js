@@ -4,15 +4,13 @@
  * Created by Shiro on 16/12/20.
  */
 const CONSTANT = {
-  host: 'http://lawliet.cc/'
+  host: 'http://www.yui.org.cn/'
 };
 export default CONSTANT;
 
 const URL = {
   login: CONSTANT.host + 'login',
-  areatree: CONSTANT.host + 'System/Area/listForTree',
-  depttree: CONSTANT.host + 'resources/Department/listForTree',
-  deptbyuser: CONSTANT.host + 'resources/Department/listForUser'
+  account: CONSTANT.host + 'account'
 };
 export {URL};
 
