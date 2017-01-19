@@ -3,17 +3,6 @@
  *
  * Created by Shiro on 16/12/20.
  */
-const CONSTANT = {
-  host: 'http://www.yui.org.cn/'
-};
-export default CONSTANT;
-
-const URL = {
-  login: CONSTANT.host + 'login',
-  account: CONSTANT.host + 'account'
-};
-export {URL};
-
 const NAV = [
   {name: 'Home', link: '/index'},
   {name: 'Editor', link: '/editor'},
@@ -27,9 +16,6 @@ const TITLEMAP = {
 export {TITLEMAP};
 
 const MSG = {
-  linkError: ' 无法连接到系统',
-  ajaxError: '系统异常',
-  dataError: '数据异常',
   requireError: '请填写此字段',
   confirmMsg: '请再次输入',
   confirmError: '两次输入不一致'

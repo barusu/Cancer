@@ -9,21 +9,27 @@
       border-radius: 3px;
       overflow: hidden;
       > li {
-        padding: .4rem .5rem;
         line-height: 1rem;
         font-size: .65rem;
+        border-top: 1px solid #eee;
         background: hsla(0,0%,100%,.95);
         font-weight: 300;
         color: #555;
       }
       > .head {
+        padding: .4rem .5rem;
         font-weight: 600;
         background: hsla(0,0%,97%,.9);
         border: 0;
       }
     }
-    a {
+    li > a {
+      display: block;
+      padding: .4rem .5rem;
       color: inherit;
+      &.router-link-active {
+        border-left: 2px solid #d84315;
+      }
     }
   }
   main {
@@ -45,7 +51,8 @@
     <div class="sidebar-wrapper">
       <ul>
         <li class="head">Personal settings</li>
-        <li><router-link :to="{name: 'Account'}">修改密码</router-link></li>
+        <li><router-link :to="{name: 'Profile'}">个人信息</router-link></li>
+        <li><router-link :to="{name: 'Account'}">账号设置</router-link></li>
       </ul>
     </div>
     <div class="content-wrapper">

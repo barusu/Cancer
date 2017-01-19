@@ -1,4 +1,5 @@
-<style></style>
+<style>
+</style>
 
 <template>
   <div class="user-content">

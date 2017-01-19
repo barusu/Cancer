@@ -20,10 +20,19 @@ const routes = [
         require(['./views/user.vue'], resolve);
       },
       children: [{
+        path: '',
+        redirect: 'profile'
+      }, {
         path: 'account',
         name: 'Account',
         component(resolve) {
           require(['./views/user/account.vue'], resolve);
+        }
+      }, {
+        path: 'profile',
+        name: 'Profile',
+        component(resolve) {
+          require(['./views/user/profile.vue'], resolve);
         }
       }]
     }]
@@ -44,9 +53,7 @@ const routes = [
     component(resolve) {
       require(['./views/login_air'], resolve);
     }
-  }, {
-    path: '*',
-    redirect: '/'
-  }
+  },
+  {path: '*', redirect: '/'}
 ];
 export default routes;

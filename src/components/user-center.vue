@@ -31,6 +31,10 @@
         max-height: 0;
         overflow: hidden;
         transition: all 500ms;
+        > a {
+          display: block;
+          color: inherit;
+        }
       }
       li.hover-tag:hover {
         color: #f77;
@@ -123,9 +127,12 @@
         <i class="fa fa-venus-mars"></i>
       </div>
       <ul class="menu clearfix">
-        <li class="hover-tag" @click="go('user', {'userId': user.name})"><span><i class="base img-user"></i>用户中心</span></li>
-        <li class="hover-tag" @click="go('Account', {'userId': user.name})"><span><i class="base img-user"></i>修改密码</span></li>
-        <li class="hover-tag"><span><i class="base img-user"></i>用户中心</span></li>
+        <li class="hover-tag">
+          <router-link :to="'/user/' + user.name"><span><i class="base img-user"></i>用户中心</span></router-link>
+        </li>
+        <li class="hover-tag">
+          <router-link :to="{name: 'Account', params: {userId: user.name}}"><span><i class="base img-user"></i>修改密码</span></router-link>
+        </li>
       </ul>
       <div class="foot hover-tag">
         <button type="button" @click="logout">退出</button></div>
@@ -147,9 +154,6 @@
       logout() {
         store.clear();
         this.$router.push('login');
-      },
-      go(name, params) {
-        this.$router.push({name: name, params: params});
       }
     }
   };
