@@ -26,6 +26,7 @@
       color: #444;
       font-size: .7rem;
       pointer-events: auto;
+      overflow: hidden;
       .hover-tag {
         max-height: 0;
         overflow: hidden;
@@ -123,7 +124,7 @@
       </div>
       <ul class="menu clearfix">
         <li class="hover-tag" @click="go('user', {'userId': user.name})"><span><i class="base img-user"></i>用户中心</span></li>
-        <li class="hover-tag"><span><i class="base img-user"></i>修改密码</span></li>
+        <li class="hover-tag" @click="go('Account', {'userId': user.name})"><span><i class="base img-user"></i>修改密码</span></li>
         <li class="hover-tag"><span><i class="base img-user"></i>用户中心</span></li>
       </ul>
       <div class="foot hover-tag">

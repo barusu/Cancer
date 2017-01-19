@@ -18,7 +18,14 @@ const routes = [
       name: 'user',
       component(resolve) {
         require(['./views/user.vue'], resolve);
-      }
+      },
+      children: [{
+        path: 'account',
+        name: 'Account',
+        component(resolve) {
+          require(['./views/user/account.vue'], resolve);
+        }
+      }]
     }]
   }, {
     path: '/editor',
