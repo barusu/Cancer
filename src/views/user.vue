@@ -60,7 +60,7 @@
           <h2>修改密码</h2>
         </div>
         <div class="form">
-          <div class="errorMsg" v-html="errorMsg"></div>
+          <msg-tip :msg="errorMsg"></msg-tip>
           <form-group v-model="oldPassword" :require="true" :status="status">旧密码</form-group>
           <form-group v-model="newPassword" :require="true">新密码</form-group>
           <form-group v-model="confirmPassword" :confirm="newPassword">确认新密码</form-group>
@@ -75,9 +75,8 @@
 
 <script>
   import formGroup from 'components/form/form-group';
-  import store from 'libs/store/lawliet';
-  import {URL as url, MSG as Msg} from 'libs/const';
-  import $ from 'jquery';
+  import msgTip from 'components/form/msg-tip';
+  import $ from 'libs/ajax';
 
   export default {
     data() {
@@ -88,7 +87,7 @@
         status: '',
         verify: true,
         lock: false,
-        errorMsg: ''
+        errorMsg: '服务商'
       };
     },
     watch: {
@@ -97,7 +96,8 @@
       confirmPassword: 'updateVerify'
     },
     components: {
-      'form-group': formGroup
+      'form-group': formGroup,
+      'msg-tip': msgTip
     },
     methods: {
       updateVerify() {
@@ -113,16 +113,17 @@
         var that = this;
         if(!this.lock && !this.verify) {
           this.status = "loading";
-          $.post(url.account, {
+          $.post('account', {
             methods: 'chang_password',
-            uid: store.state.uid,
             old: this.oldPassword,
             new: this.newPassword
           }, (data) => {
             if(data && data.status) {
+              that.status = 'success';
               console.log(data);
-            }else if(data) {
-              that.errorMsg = data.info || Msg.dataError;
+            }else {
+              that.status = 'error';
+              that.errorMsg = data.info || '未知错误';
             }
           });
         }
