@@ -7,8 +7,7 @@ import Routers from './router';
 import Env from './config/env';
 import App from './views/app';
 import store from 'libs/store/lawliet';
-import {TITLEMAP, MSG} from 'libs/const';
-import $ from 'jquery';
+import {TITLEMAP} from 'libs/const';
 
 Vue.use(VueRouter);
 
@@ -35,15 +34,6 @@ router.beforeEach((to, from, next) => {
 router.afterEach((r) => {
   if(r.name) {
     document.title = TITLEMAP[r.name] || '星の形';
-  }
-});
-
-$.ajaxSetup({
-  timeout: 3000,
-  dataType: 'json',
-  error(xhr) {
-    if(xhr.readyState) {store.msg.ajax = MSG.ajaxError;}
-    else {store.msg.ajax = MSG.linkError;}
   }
 });
 

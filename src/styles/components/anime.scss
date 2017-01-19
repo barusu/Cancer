@@ -2,6 +2,24 @@
  * Created by shiro on 16/12/25.
  */
 
+.fade-enter-active {
+  transition: all .5s ease-out;
+}
+.fade-leave-active {
+  transition: all .6s ease;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  max-height: 0;
+  overflow: hidden;
+  transform: rotateX(90deg);
+}
+.fade-leave {
+  max-height: 3em;
+}
+
 .anime-breath {
   animation: breath 3s infinite ease-out alternate;
 }

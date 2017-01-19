@@ -2,9 +2,61 @@
  * Created by shiro on 16/12/27.
  */
 
-$errorColor: #f00 !default;
+$errorColor_fz: #c62828 !default;
+$errorColor_bg: #fcdede !default;
+$errorColor_bd: #d2b2b2 !default;
 $focusColor: #03a9f4 !default;
 
+.form {
+  .errorMsg {
+    padding: .5em .5em;
+    background: $errorColor_bg;
+    box-shadow: 0 -1px 0 0 $errorColor_bd, 0 1px 0 0 $errorColor_bd;
+    > span {
+      display: inline-block;
+      font-size: .7rem;
+      color: $errorColor_fz;
+    }
+    .off {
+      position: relative;
+      top: .25em;
+      display: inline-block;
+      font-size: .6rem;
+      width: 1em;
+      height: 1em;
+      margin: 0 .5em;
+      vertical-align: middle;
+      cursor: pointer;
+      float: right;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 50%;
+        margin-left: -1px;
+        display: inline-block;
+        width: 2px;
+        height: 100%;
+        box-sizing: border-box;
+        border: 1px solid $errorColor_fz;
+        border-radius: 2px;
+        transform: rotate(45deg);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 50%;
+        margin-left: -1px;
+        display: inline-block;
+        width: 2px;
+        height: 100%;
+        box-sizing: border-box;
+        border: 1px solid $errorColor_fz;
+        border-radius: 2px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
 .form-field {
   width: 22rem;
   max-width: 100%;
@@ -27,12 +79,12 @@ dl.form-group {
     &.error {
       position: absolute;
       bottom: -3.5em;
-      padding: 0 .5em;
-      line-height: 2;
+      padding: .6em .5em .4em;
+      line-height: 1;
       font-size: .6rem;
-      color: darken($errorColor, 25%);
-      background: lighten($errorColor, 25%);
-      border: 1px solid darken($errorColor, 10%);
+      color: $errorColor_fz;
+      background: $errorColor_bg;
+      border: 1px solid $errorColor_bd;
       border-radius: 3px;
       z-index: 1;
       visibility: hidden;
@@ -53,7 +105,7 @@ dl.form-group {
       }
       &::after {
         margin-left: 1px;
-        border-bottom-color: lighten($errorColor, 25%);
+        border-bottom-color: $errorColor_bg;
         border-width: 5px;
       }
     }
@@ -62,7 +114,7 @@ dl.form-group {
     font-weight: 600;
   }
   &.error {
-    color: $errorColor;
+    color: $errorColor_fz;
     .error {
       bottom: -2.5em;
       visibility: visible;

@@ -102,7 +102,7 @@
             <input type="password" class="form-field" v-model="password" placeholder="密码">
           </label>
         </div>
-        <div class="msg" v-html="ErrorMsg || globalMsg.ajax" v-show="errorTip"></div>
+        <div class="msg" v-html="ErrorMsg" v-show="errorTip"></div>
       </div>
     </div>
     <div class="login-title" data-en="your name and password.">君の名は。</div>
@@ -110,9 +110,7 @@
 </template>
 
 <script>
-  import {URL as url, MSG as Msg} from 'libs/const';
-  import store from 'libs/store/lawliet';
-  import $ from 'jquery';
+  import $ from 'libs/ajax';
 
   export default {
     data () {
@@ -120,7 +118,6 @@
         loginName: '',
         password: '',
         errorMsg: '',
-        globalMsg: store.msg,
         errorTip: false
       };
     },
@@ -131,20 +128,12 @@
         this.errorTip = true;
         if(this.loginName && this.password) {
           this.errorMsg = '';
-          $.ajax({
-            url: url.login,
-            headers: {
-              'Authorization': 'Basic ' + btoa(unescape(encodeURIComponent(that.loginName + ':' + that.password)))
-            },
-            success(data) {
-              if(data && data.id) {
-                store.setUser(data);
-                store.updateCache();
-                that.$router.replace('/');
-              }else {
-                that.errorMsg = data && data.info || Msg.dataError;
-              }
-            }
+          $.login({
+            name: this.loginName,
+            password: this.password
+          }, data => {
+            if(data === true) {that.$router.replace('/');}
+            else {that.errorMsg = data;}
           });
         }
       }
