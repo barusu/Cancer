@@ -15,12 +15,12 @@ const routes = [
       }
     }, {
       path: 'user/:userId',
-      name: 'user',
       component(resolve) {
         require(['./views/user.vue'], resolve);
       },
       children: [{
         path: '',
+        name: 'User',
         redirect: 'profile'
       }, {
         path: 'account',

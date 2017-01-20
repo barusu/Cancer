@@ -4,16 +4,15 @@
   <div class="user-content">
     <div class="hidden">
       <input type="text">
-      <input type="password">
     </div>
     <div class="subhead">
       <h2>修改密码</h2>
     </div>
     <div class="form">
       <msg-tip :msg="errorMsg"></msg-tip>
-      <form-group v-model="oldPassword" :require="true" :status="status">旧密码</form-group>
-      <form-group v-model="newPassword" :require="true">新密码</form-group>
-      <form-group v-model="confirmPassword" :confirm="newPassword">确认新密码</form-group>
+      <form-group v-model="oldPassword" :require="true" type="password" :status="status">旧密码</form-group>
+      <form-group v-model="newPassword" :require="true" type="password" length="4,20">新密码</form-group>
+      <form-group v-model="confirmPassword" :confirm="newPassword" type="password">确认新密码</form-group>
       <div class="action-group">
         <button type="button" class="btn info" :disabled="verify" @click="update">更新密码</button>
       </div>

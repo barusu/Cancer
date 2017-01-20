@@ -15,13 +15,6 @@ const TITLEMAP = {
 };
 export {TITLEMAP};
 
-const MSG = {
-  requireError: '请填写此字段',
-  confirmMsg: '请再次输入',
-  confirmError: '两次输入不一致'
-};
-export {MSG};
-
 const MAP = {
   sex: ['女', '男']
 };

@@ -128,7 +128,7 @@
       </div>
       <ul class="menu clearfix">
         <li class="hover-tag">
-          <router-link :to="'/user/' + user.name"><span><i class="base img-user"></i>用户中心</span></router-link>
+          <router-link :to="{name: 'User', params: {userId: user.name}}"><span><i class="base img-user"></i>用户中心</span></router-link>
         </li>
         <li class="hover-tag">
           <router-link :to="{name: 'Account', params: {userId: user.name}}"><span><i class="base img-user"></i>修改密码</span></router-link>
