@@ -9,6 +9,10 @@
     font-size: .6rem;
     background: inherit;
     background-position: 50% -100%;
+    transition: box-shadow .5s;
+  }
+  header:hover {
+    box-shadow: 0 1px 6px rgba(0,0,0,.2);
   }
   header::after {
     content: "";

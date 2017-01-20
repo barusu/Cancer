@@ -1,25 +1,21 @@
-<style></style>
-
+<style>
+  .wrapper.project {
+    background: hsl(0,0%,90%) 50% -10px / cover repeat-y;
+  }
+</style>
 <template>
-  <main>
-    <h2>
-      <img src="../images/logo.png">
-    </h2>
-    <h1>
-      覆盖移动终端: {{ 3731700153 |  NumberSeparator }}
-    </h1>
-    <xc-footer></xc-footer>
-  </main>
+  <div class="wrapper project">
+    <xc-header></xc-header>
+    <router-view></router-view>
+  </div>
 </template>
-
 <script>
-  import NumberSeparator from '../filters/number-separator';
+  import Header from 'components/header.vue';
 
   export default {
-    filters: {
-      NumberSeparator
-    },
+    filters: {},
     components: {
+      'xc-header': Header
     },
     data () {
       return {}

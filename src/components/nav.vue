@@ -29,7 +29,8 @@
       background: rgba(255,255,255,.8);
       width: 10em;
       font-size: .6rem;
-      border-radius: 0 0 5px 5px;
+      border-radius: 0 0 2px 2px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.2);
       overflow: hidden;
       > li {
         max-height: 0;
@@ -37,6 +38,9 @@
         line-height: 2;
         padding: 0 1em;
         overflow: hidden;
+        > a {
+          line-height: 2;
+        }
         &::before {
           content: "";
           display: inline-block;
@@ -75,12 +79,8 @@
     <ul class="clearfix">
       <li v-for="r in nav">
         <router-link :to="r.link" v-html="r.name"></router-link>
-        <ul class="liste">
-          <li>test1</li>
-          <li>test2</li>
-          <li>test3</li>
-          <li>test4</li>
-          <li>test5</li>
+        <ul class="liste" v-if="r.children">
+          <li v-for="rc in r.children"><router-link :to="rc.link" v-html="rc.name"></router-link></li>
         </ul>
       </li>
     </ul>

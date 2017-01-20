@@ -1,22 +1,32 @@
 <style>
+  .half {
+    display: inline-block;
+  }
 </style>
 
 <template>
   <div class="user-content">
     <div class="hidden">
       <input type="text">
-      <input type="password">
     </div>
     <div class="subhead">
-      <h2>修改密码</h2>
+      <h2>基本信息</h2>
     </div>
     <div class="form">
       <msg-tip :msg="errorMsg"></msg-tip>
-      <form-group v-model="oldPassword" :require="true" :status="status">旧密码</form-group>
-      <form-group v-model="newPassword" :require="true">新密码</form-group>
-      <form-group v-model="confirmPassword" :confirm="newPassword">确认新密码</form-group>
+      <form-group v-model="name" :require="true">昵称</form-group>
+      <dl class="form-group half">
+        <dt>性别</dt>
+        <dd>
+          <label for=""></label>
+          <input type="radio" id="field111" class="form-field-radio">
+        </dd>
+      </dl>
+      <form-group v-model="sex" class="half">性别</form-group>
+      <form-group v-model="zodiac">属相</form-group>
+      <form-group v-model="constellation">星座</form-group>
       <div class="action-group">
-        <button type="button" class="btn info" :disabled="verify" @click="update">更新密码</button>
+        <button type="button" class="btn info" :disabled="verify" @click="update">更新基本信息</button>
       </div>
     </div>
   </div>
@@ -30,9 +40,10 @@
   export default {
     data() {
       return {
-        oldPassword: '',
-        newPassword: '',
-        confirmPassword: '',
+        name: '',
+        sex: '',
+        zodiac: '',
+        constellation: '',
         status: '',
         verify: true,
         lock: false,
@@ -40,9 +51,7 @@
       };
     },
     watch: {
-      oldPassword: 'updateVerify',
-      newPassword: 'updateVerify',
-      confirmPassword: 'updateVerify'
+      name: 'updateVerify'
     },
     components: {
       'form-group': formGroup,
@@ -63,9 +72,7 @@
         if(!this.lock && !this.verify) {
           this.status = "loading";
           $.post('account', {
-            methods: 'chang_password',
-            old: this.oldPassword,
-            new: this.newPassword
+            methods: 'chang_password'
           }, (data) => {
             if(data && data.status) {
               that.status = 'success';

@@ -6,6 +6,11 @@
 const NAV = [
   {name: 'Home', link: '/index'},
   {name: 'Editor', link: '/editor'},
+  {name: 'Project', link: '/project', children: [
+    {name: 'RMSP', link: '/project/rmsp'},
+    {name: 'test', link: '/project/'},
+    {name: 'test', link: '/project/'}
+  ]},
   {name: 'Css', link: '/css'}
 ];
 export {NAV};

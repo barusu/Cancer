@@ -99,6 +99,7 @@
       }
       .profile {
         padding-top: 1.6rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,.2);
         .hover-tag {
           max-height: 2em;
         }

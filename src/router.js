@@ -37,6 +37,18 @@ const routes = [
       }]
     }]
   }, {
+    path: '/project',
+    component(resolve) {
+      require(['./views/project.vue'], resolve);
+    },
+    children: [{
+      path: '',
+      name: 'Project',
+      component(resolve) {
+        require(['./views/project/index.vue'], resolve);
+      }
+    }]
+  }, {
     path: '/editor',
     component(resolve) {
       require(['./views/editor.vue'], resolve);

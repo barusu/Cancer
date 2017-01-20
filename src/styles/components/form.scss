@@ -6,8 +6,25 @@ $errorColor_fz: #c62828 !default;
 $errorColor_bg: #fcdede !default;
 $errorColor_bd: #d2b2b2 !default;
 $focusColor: #03a9f4 !default;
+$form_width: 22rem !default;
 
 .form {
+  .action-group,
+  .form-group {
+    float: left;
+    width: 100%;
+    &.half {
+      width: $form_width / 2;
+      max-width: 50%;
+    }
+  }
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+    float: none;
+    *zoom: 1;
+  }
   .errorMsg {
     padding: .5em .5em;
     background: $errorColor_bg;
@@ -58,7 +75,7 @@ $focusColor: #03a9f4 !default;
   }
 }
 .form-field {
-  width: 22rem;
+  width: $form_width;
   max-width: 100%;
   padding: .5em 1em;
   line-height: 2;
@@ -72,6 +89,7 @@ dl.form-group {
   position: relative;
   margin: .7rem 0;
   > dt {
+    font-weight: 600;
     margin-bottom: .3rem;
     transition: all .3s ease-in-out .5s;
   }
@@ -111,7 +129,7 @@ dl.form-group {
     }
   }
   label {
-    font-weight: 600;
+    font-weight: inherit;
   }
   &.error {
     color: $errorColor_fz;
