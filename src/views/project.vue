@@ -13,16 +13,8 @@
   import Header from 'components/header.vue';
 
   export default {
-    filters: {},
     components: {
       'xc-header': Header
-    },
-    data () {
-      return {}
-    },
-    beforeDestroy () {
-    },
-    methods: {
     }
   }
 </script>
