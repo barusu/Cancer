@@ -3,13 +3,17 @@
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import ElementUI from 'element-ui';
 import Routers from './router';
 import Env from './config/env';
 import App from './views/app';
 import store from 'libs/store/lawliet';
 import {TITLEMAP} from 'libs/const';
 
+import 'element-ui/lib/theme-default/index.css';
+
 Vue.use(VueRouter);
+Vue.use(ElementUI);
 
 // 开启debug模式
 Vue.config.debug = true;
