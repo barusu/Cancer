@@ -87,7 +87,7 @@ $form_width: 22rem !default;
 
 dl.form-group {
   position: relative;
-  margin: .7rem 0;
+  margin: .7rem 0 0;
   > dt {
     font-weight: 600;
     margin-bottom: .3rem;
@@ -158,6 +158,9 @@ dl.form-group {
     &.bg-tag-loading {
       padding-right: 1.5rem;
       background-image: url(../images/loading.gif);
+    }
+    &:hover {
+      border-color: $focusColor;
     }
     &:focus {
       border-color: $focusColor;

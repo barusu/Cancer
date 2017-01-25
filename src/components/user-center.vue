@@ -41,7 +41,7 @@
       }
       .user-info {
         text-align: center;
-        font-size: 12px;
+        font-size: .65rem;
         line-height: 2;
         overflow: hidden;
       }

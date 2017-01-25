@@ -13,16 +13,24 @@
       <h2>基本信息</h2>
     </div>
     <div class="form">
-      <msg-tip :msg="errorMsg"></msg-tip>
       <form-group v-model="name" :require="true">昵称</form-group>
       <dl class="form-group half">
         <dt>性别</dt>
         <dd>
-          <label for=""></label>
-          <input type="radio" id="field111" class="form-field-radio">
+          <el-radio class="radio" v-model="sex" :label="i + ''" v-for="(s,i) in Map.sex">{{s}}</el-radio>
         </dd>
       </dl>
-      <form-group v-model="sex" class="half">性别</form-group>
+      <dl class="form-group half">
+        <dt>性别</dt>
+        <dd>
+          <el-select v-model="zodiac" placeholder="请选择">
+            <el-option v-for="i in Map.zodiac" :label="i.emoji" :value="i.zh">
+              <span class="fl">{{i.zh}}</span>
+              <span class="fr">{{i.emoji}}</span>
+            </el-option>
+          </el-select>
+        </dd>
+      </dl>
       <form-group v-model="zodiac">属相</form-group>
       <form-group v-model="constellation">星座</form-group>
       <div class="action-group">
@@ -34,15 +42,17 @@
 
 <script>
   import formGroup from 'components/form/form-group';
-  import msgTip from 'components/form/msg-tip';
+  import store from 'libs/store/lawliet';
+  import {MAP} from 'libs/const';
   import $ from 'libs/ajax';
 
   export default {
     data() {
       return {
-        name: '',
-        sex: '',
-        zodiac: '',
+        Map: MAP,
+        name: store.state.name,
+        sex: store.state.sex,
+        zodiac: store.state.zodiac,
         constellation: '',
         status: '',
         verify: true,
@@ -54,8 +64,7 @@
       name: 'updateVerify'
     },
     components: {
-      'form-group': formGroup,
-      'msg-tip': msgTip
+      'form-group': formGroup
     },
     methods: {
       updateVerify() {

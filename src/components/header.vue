@@ -20,7 +20,7 @@
     top: 0; left: 0;
     display: block;
     width: 100%;
-    height: 36px;
+    height: 1.8rem;
     background: rgba(255,255,255,.4);
     z-index: 2;
   }
