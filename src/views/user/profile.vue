@@ -21,7 +21,7 @@
         </dd>
       </dl>
       <dl class="form-group half">
-        <dt>性别</dt>
+        <dt>属相</dt>
         <dd>
           <el-select v-model="zodiac" placeholder="请选择">
             <el-option v-for="i in Map.zodiac" :label="i.emoji" :value="i.zh">
