@@ -14,23 +14,38 @@
     </div>
     <div class="form">
       <form-group v-model="name" :require="true">昵称</form-group>
-      <dl class="form-group half">
-        <dt>性别</dt>
-        <dd>
-          <el-radio class="radio" v-model="sex" :label="i + ''" v-for="(s,i) in Map.sex">{{s}}</el-radio>
-        </dd>
-      </dl>
-      <dl class="form-group half">
-        <dt>属相</dt>
-        <dd>
-          <el-select v-model="zodiac" placeholder="请选择">
-            <el-option v-for="i in Map.zodiac" :label="i.emoji" :value="i.zh">
-              <span class="fl">{{i.zh}}</span>
-              <span class="fr">{{i.emoji}}</span>
-            </el-option>
-          </el-select>
-        </dd>
-      </dl>
+      <div class="clearfix">
+        <dl class="form-group half">
+          <dt>性别</dt>
+          <dd>
+            <el-radio class="radio" v-model="sex" :label="i + ''" v-for="(s,i) in Map.sex">{{s}}</el-radio>
+          </dd>
+        </dl>
+        <dl class="form-group half">
+          <dt>属相</dt>
+          <dd>
+            <el-select v-model="zodiac" placeholder="请选择">
+              <el-option v-for="i in Map.zodiac" :label="i.emoji" :value="i.zh">
+                <span class="fl">{{i.zh}}</span>
+                <span class="fr">{{i.emoji}}</span>
+              </el-option>
+            </el-select>
+          </dd>
+        </dl>
+      </div>
+      <div class="clearfix">
+        <dl class="form-group half">
+          <dt>星座</dt>
+          <dd>
+            <el-select v-model="constellation" placeholder="请选择">
+              <el-option v-for="i in Map.constellation" :label="i.emoji" :value="i.zh">
+                <span class="fl">{{i.zh}}</span>
+                <span class="fr">{{i.emoji}}</span>
+              </el-option>
+            </el-select>
+          </dd>
+        </dl>
+      </div>
       <form-group v-model="constellation">星座</form-group>
       <div class="action-group">
         <button type="button" class="btn info" :disabled="verify" @click="update">更新基本信息</button>
