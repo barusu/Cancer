@@ -46,7 +46,6 @@
           </dd>
         </dl>
       </div>
-      <form-group v-model="constellation">星座</form-group>
       <div class="action-group">
         <button type="button" class="btn info" :disabled="verify" @click="update">更新基本信息</button>
       </div>
