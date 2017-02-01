@@ -37,3 +37,7 @@ $form_width: 22rem !default;
 .el-radio {
   line-height: 1.7rem;
 }
+
+.el-select:hover .el-input .el-input__inner {
+  border-color: #dcdcdc;
+}
