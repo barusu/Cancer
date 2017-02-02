@@ -21,6 +21,8 @@
             <el-radio class="radio" v-model="sex" :label="i + ''" v-for="(s,i) in Map.sex">{{s}}</el-radio>
           </dd>
         </dl>
+      </div>
+      <div class="clearfix">
         <dl class="form-group half">
           <dt>属相</dt>
           <dd>
@@ -32,8 +34,6 @@
             </el-select>
           </dd>
         </dl>
-      </div>
-      <div class="clearfix">
         <dl class="form-group half">
           <dt>星座</dt>
           <dd>
