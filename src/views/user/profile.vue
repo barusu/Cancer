@@ -67,6 +67,7 @@
         sex: store.state.sex,
         zodiac: store.state.zodiac,
         constellation: store.state.constellation,
+        phone: store.state.phone,
         status: '',
         verify: true,
         lock: false,
