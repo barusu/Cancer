@@ -15,6 +15,7 @@
     <div class="form">
       <form-group v-model="name" :require="true">昵称</form-group>
       <div class="clearfix">
+        <form-group v-model="phone" :require="true" class="half">手机</form-group>
         <dl class="form-group half">
           <dt>性别</dt>
           <dd>
