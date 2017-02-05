@@ -64,11 +64,12 @@
     data() {
       return {
         Map: MAP,
-        name: store.state.name,
         sex: store.state.sex,
-        zodiac: store.state.zodiac,
-        constellation: store.state.constellation,
+        name: store.state.name,
         phone: store.state.phone,
+        zodiac: store.state.zodiac,
+        birthday: store.state.birthday,
+        constellation: store.state.constellation,
         status: '',
         verify: true,
         lock: false,
