@@ -47,6 +47,14 @@
           </dd>
         </dl>
       </div>
+      <div class="clearfix">
+        <dl class="form-group half">
+          <dt>生日</dt>
+          <dd>
+            <el-date-picker v-model="birthday" type="date" placeholder="选择日期"></el-date-picker>
+          </dd>
+        </dl>
+      </div>
       <div class="action-group">
         <button type="button" class="btn info" :disabled="verify" @click="update">更新基本信息</button>
       </div>
