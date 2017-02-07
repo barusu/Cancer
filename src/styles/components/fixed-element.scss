@@ -2,6 +2,7 @@ $focusColor: #03a9f4 !default;
 $form_width: 22rem !default;
 
 // select
+.el-date-editor,
 .el-select {
   width: 100%;
   .el-input__inner {
@@ -40,4 +41,8 @@ $form_width: 22rem !default;
 
 .el-select:hover .el-input .el-input__inner {
   border-color: #dcdcdc;
+}
+
+dd .el-date-editor.el-input {
+  width: 100%;
 }
