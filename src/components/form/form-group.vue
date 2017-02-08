@@ -27,7 +27,10 @@
       };
     },
     props: {
-      value: String,
+      value: {
+        type: String,
+        default: ''
+      },
       require: {
         type: Boolean,
         default: false
@@ -57,6 +60,10 @@
     },
     computed: {
       verify() {
+        if(typeof(this.value) !== 'string') {
+          this.verifyMsg = MSG.requireError;
+          return false;
+        }
         if(this.require && !this.value.length) {
           this.verifyMsg = MSG.requireError;
           return false;
