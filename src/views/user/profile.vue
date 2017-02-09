@@ -85,7 +85,8 @@
       };
     },
     watch: {
-      name: 'updateVerify'
+      name: 'updateVerify',
+      phone: 'updateVerify'
     },
     components: {
       'form-group': formGroup
