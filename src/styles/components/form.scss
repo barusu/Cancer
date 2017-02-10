@@ -16,6 +16,7 @@ $form_width: 22rem !default;
     &.half {
       width: $form_width / 2;
       max-width: 50%;
+      padding-right: .3rem;
     }
   }
   &::after {
