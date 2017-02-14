@@ -51,7 +51,7 @@
         <dl class="form-group half">
           <dt>生日</dt>
           <dd>
-            <el-date-picker v-model="birthday" type="date" placeholder="选择日期"></el-date-picker>
+            <el-date-picker v-model="birthday" type="date" placeholder="请选择出生日期"></el-date-picker>
           </dd>
         </dl>
       </div>
