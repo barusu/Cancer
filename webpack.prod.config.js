@@ -9,7 +9,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var fs = require('fs');
 
 config.output.path += '/../build/dist';
-config.output.publicPath = '/dist/';                        // 资源路径,根据需要可改为cdn地址
+config.output.publicPath = './dist/';                        // 资源路径,根据需要可改为cdn地址
 config.output.filename = '[name].js';                 // 带hash值的入口js名称
 config.output.chunkFilename = '[name].chunk.js';      // 带hash值的路由js名称
 
